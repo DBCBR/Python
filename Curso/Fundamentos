@@ -1,0 +1,112 @@
+#Comandos para imprimir na tela
+print("David Barcellos Cardoso")
+print("Tenho 37 anos")
+print("Minha altura é de 1,81\n")
+print("David Barcellos Cardoso\nTenho 37 anos\nMinha altura é de 1,81\n")
+print("Nome: {}, idade: {} e altura: {}\n".format("David", 37, 1.81))
+print("4", "8", "16", sep=' - ')
+print("-"*20)
+
+#Variáveis
+_numero = 1
+Numero = 2
+numero = 3
+numero123 = 4
+print(_numero, Numero, numero, numero123)
+
+#Tipos Primitivos
+variável = None
+print(variável)
+inteiro = 10
+print(inteiro)
+decimal = 10.5
+print(decimal)
+texto = "David"
+print(texto)
+booleano = True
+print(booleano)
+booleano = False
+print(booleano)
+print("-"*20)
+
+#Atividade Variáveis
+nome = "David"
+cpf = "123.456.789-10"
+civil = "Casado"
+print("Nome: {}\nCPF: {}\nEstado Civil: {}".format(nome, cpf, civil))
+print("-"*20)
+
+#Formatação
+# %s - Texto
+# %d - Inteiro
+# %f - Decimal
+# %r - Booleano
+
+nome = "David"
+texto_formatado = "Meu nome é %s" % nome
+print(texto_formatado)
+idade = 37
+altura = 1.81
+texto = "Meu nome é %s, tenho %d anos e %.2f de altura\n" % (nome, idade, altura)
+print(texto)
+pi = 3.14159265359
+texto = "O valor de PI é %f\n" % pi
+print(texto)
+valor = True
+print("O valor é %s" % valor)
+print("O valor é %d\n" % valor)
+decimal = 10.54321
+print("A parte inteira é %d" % decimal)
+print("-"*20)
+
+#Formatação com Caracteres Especiais
+# \n - Quebra de Linha
+# \t - Tabulação
+# \b - Backspace
+# \r - Carriage Return
+# \f - Form Feed
+# \\ - Barra Invertida
+# \' - Aspas Simples
+# \" - Aspas Duplas
+texto = "Olá, é assim que se quebra uma linha,\n\t e é assim que se dá um tab!\n"
+print(texto)
+print("-"*20)
+
+#Atividades Formatação
+dia = 16
+mês = 10
+ano = 1986
+print("Data de Nascimento: %d/%d/%d" % (dia, mês, ano))
+hora = 16
+minuto = 40
+print("Agora são %d:%d" % (hora, minuto))
+print("-"*20)
+
+#Operadores Aritméticos
+# + - Soma
+# - - Subtração
+# * - Multiplicação
+# / - Divisão
+# // - Divisão Inteira
+# % - Resto da Divisão
+# ** - Potenciação
+print(10 + 5)
+numero = 10 + 10.5
+print(numero)
+numero2 = 30 + numero
+print(numero2)
+numero = 20 - 10
+print(numero)
+numero = 10 * 5
+print(numero)
+numero = 10 / 3
+print(numero)
+numero = 10 // 3
+print(numero)
+numero = 10 % 3
+print(numero)
+numero = 10 ** 3
+print(numero)
+print("-"*20)
+
+#
