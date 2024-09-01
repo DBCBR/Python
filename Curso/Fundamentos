@@ -109,4 +109,119 @@ numero = 10 ** 3
 print(numero)
 print("-"*20)
 
-#
+#Atividades
+print("1")
+ano_atual = 2024
+ano_nascimento = 1986
+idade = ano_atual - ano_nascimento
+print("Idade: %d" % idade)
+print("-"*20)
+print("2")
+num1 = 10
+num2 = 20
+num3 = 30
+media = (num1 + num2 + num3) / 3
+print("Média: %.2f" % media)
+print("-"*20)
+print("3")
+peso = 115
+altura = 1.81
+imc = peso / (altura ** 2)
+print("IMC: %.2f" % imc)
+print("-"*20)
+print("4")
+ovos_páscoa = 12
+crianças = 5
+print("Total de %d ovos de páscoa para %d crianças" % (ovos_páscoa, crianças))
+ovos_por_criança = ovos_páscoa / crianças
+print("Ovos por Criança: %d" % ovos_por_criança)
+print("Ficaram sobrando %d ovos" % (ovos_páscoa % crianças))
+print("-"*20)
+
+#Operadores Lógicos
+# and - E
+# or - OU
+# not - NÃO
+# == - Igual
+# != - Difer
+# > - Maior
+# < - Menor
+# >= - Maior ou Igual
+# <= - Menor ou Igual
+print("AND")
+print(True and True)
+print(True and False)
+print(False and True)
+print(False and False)
+print("-"*20)
+print("OR")
+print(True or True)
+print(True or False)
+print(False or True)
+print(False or False)
+print("-"*20)
+print("NOT")
+print(not True)
+print(not False)
+print("-"*20)
+
+#Atividades Com Operadores Lógicos
+print("1")
+faltar_comida = True
+se_for_sábado = True
+print("Devo ir ao mercado?" , faltar_comida or se_for_sábado)
+print("-"*20)
+print("2")
+sinal_vermelho = True
+carro_vindo_direita = False
+carro_vindo_esquerda = False
+atravessar_rua = sinal_vermelho and not carro_vindo_direita and not carro_vindo_esquerda
+print("Posso atravessar a rua?" , atravessar_rua)
+print("-"*20)
+print("3")
+sinal_vermelho = False
+carro_vindo_direita = True
+carro_vindo_esquerda = True
+atravessar_rua = sinal_vermelho or not carro_vindo_direita and not carro_vindo_esquerda
+print("Estou com pressa posso atravessar a rua?" , atravessar_rua)
+print("-"*20)
+
+#Casting - Conversão de Tipos
+# int() - Inteiro
+# float() - Decimal
+# str() - Texto
+# bool() - Booleano
+# type() - Tipo
+numero = 10
+texto = "10"
+decimal = 10.5
+booleano = True
+print(type(numero))
+print(type(texto))
+print(type(decimal))
+print(type(booleano))
+print("-"*20)
+
+#Atividades Casting
+conta = "10000"
+saque = 1000
+saldo = int(conta) - saque
+print("Saldo: %d" % saldo)
+print("-"*20)
+saldo = 1000
+saldo_zerado = not bool(saldo)
+print("Saldo Zerado?" , saldo_zerado)
+print("-"*20)
+altura = 1.81
+print("Altura: %d" % int(altura))
+print("-"*20)
+
+#Entrada de Dados
+# input() - Entrada de Dados
+# nome = input("Digite seu nome: ")
+# print("Seu nome é: %s" % nome)
+# print("Digite sua data de nascimento")
+# dia = input("Dia: ")
+# mês = input("Mês: ")
+# ano = input("Ano: ")
+# print("Data de Nascimento: %s/%s/%s" % (dia, mês, ano))
