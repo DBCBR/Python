@@ -91,4 +91,107 @@ print("-"*20)
 
 #Atividades
 
-    
+# saldo_entrada = input("Digite seu saldo: ")
+# valor_devido = input("Digite o valor devido: ")
+# saldo = float(saldo_entrada)
+# divida = float(valor_devido)
+# valor_total = saldo - divida
+# if valor_total >= 0:
+#     print("Saldo é positivo, você tem R$ %.2f" % valor_total)
+# else:
+#     print("Saldo é negativo, você deve R$ %.2f" % valor_total)
+# print("-"*20)  
+
+# cpf = "123.456.789-10"
+# senha = "123456"
+# senha_digitada = input("Digite sua senha: ")
+# if senha == senha_digitada:
+#     print("Senha correta, seu CPF é:", cpf)
+# else:
+#     print("Senha incorreta")
+# print("-"*20)
+
+# idade = int(input("Digite a sua idade: "))
+# if idade <= 3:
+#   print("Você é um bebê!")
+# else idade <= 13:
+#   print("Você é uma criança!")
+# else idade <= 18:
+#   print("Você é um adolescente!")
+# else idade <= 65:
+#   print("Você é um adulto!")
+# else:
+#   print("Você é um idoso!")
+# print("-"*20)
+
+# num1 = float(input("Digite o primeiro número: "))
+# num2 = float(input("Digite o segundo número: "))
+# escolha = input("Digite a operação desejada: 1 para soma, 2 para subtração, 3 para divisão e 4 para multiplicação: ")
+# if escolha == "1":
+#     print(num1 + num2)
+# elif escolha == "2":
+#     print(num1 - num2)
+# elif escolha == "3":
+#     print(num1 / num2)
+# elif escolha == "4":
+#     print(num1 * num2)
+# else:
+#     print("Operação inválida")
+# print("-"*20)
+
+#Laços de Repetição
+
+numero = 10
+print("Início do laço")
+while numero > 0:
+    print(numero)
+    numero -= 1
+print("Fim do laço")
+print("-"*20)
+
+número = 10
+print("Início do laço")
+while número >= 0:
+    resto = número % 2
+    if resto == 0:
+        print("O número %d é par" % número)
+    else:
+        print("O número %d é ímpar" % número)
+    número -= 1
+print("Fim do laço")
+print("-"*20)
+
+# soma = 0
+# números_lidos = 0
+# while números_lidos < 5:
+#     num_str = input("Digite um número: ")
+#     num_lido = float(num_str)
+#     soma += num_lido
+#     números_lidos += 1
+# print("A soma dos números é: %.2f" % soma)
+# print("-"*20)
+
+texto = "Olá 123 _"
+índice= 0
+while índice < len(texto):
+    print(texto[índice])
+    índice += 1
+print("-"*20)
+
+num_atual = 0
+while True:
+    if num_atual == 5:
+        break
+    print(num_atual)
+    num_atual += 1
+print("Encerrou")
+print("-"*20)
+
+num_atual = 0
+while num_atual < 10:
+    num_atual += 1
+    if num_atual == 7:
+        continue
+    print(num_atual)
+print("Encerrou")
+print("-"*20)
