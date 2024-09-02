@@ -1,0 +1,94 @@
+#Estruturas de Programação
+
+#IF 
+
+print("Isto está fora dos ifs")
+if(True):
+    print("Este código vai ser executado")
+    if(False):
+        print("Isto está dentro do segundo if")
+    print("Isto está dentro do primeiro if")
+print("Isto está fora do primeiro if")
+print("-"*20)
+
+valor1 = 10
+valor2 = 10
+if(valor1 == valor2):
+    print("Os valores são iguais")
+print("-"*20)
+
+if 10 != 20:
+    print("Os valores são diferentes")
+
+if 10 != 10:
+    print("Os valores são diferentes")
+
+if ("olá" != "alo"):
+    print("As strings são diferentes")
+    
+numero = 11
+if numero > 10:
+    print("O número é maior que 10")
+
+# nome = input("Digite o seu nome: ")
+# if "a" in nome:
+#     print("O seu nome contém a letra 'a'")
+
+# nome = input("Digite o seu nome: ")
+# possui_vogal = "a" in nome or "e" in nome or "i" in nome or "o" in nome or "u" in nome
+# if possui_vogal:
+#     print("O seu nome contém uma vogal")
+print("-"*20)
+
+#IF ELSE
+
+numero = 9
+if numero >= 10:
+    print("O número é maior ou igual a 10")
+else:
+    print("O número é menor que 10")
+print("-"*20)
+
+numero = 10
+if numero % 2 == 0:
+    print("O número é par")
+else:
+    print("O número é ímpar")
+print("-"*20)
+
+valor = 11
+if valor >= 0 and valor <= 10:
+    print(valor)
+else:
+    print("O valor não está entre 0 e 10")
+print("-"*20)
+
+texto = "a"
+if len(texto) == 1:
+    print("Tem um caractere")
+else:
+    print("O texto tem mais de um caractere")
+print("-"*20)
+
+#IF ELIF ELSE
+
+numero = 1
+if numero == 1 or numero == 0:
+    print("O número é 0 ou 1")
+print("-"*20)
+
+numero = 10
+if numero > 0:
+    print("Número é maior que zero")
+    if numero > 10:
+        print("Número é maior que 10")
+print("-"*20)
+
+numero = 10
+resultado = "PAR" if numero % 2 == 0 else "ÍMPAR"
+print(resultado)
+print("-"*20)
+
+#Atividades
+
+    
