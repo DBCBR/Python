@@ -139,7 +139,8 @@ print("-"*20)
 #     print("Operação inválida")
 # print("-"*20)
 
-#Laços de Repetição
+#Laços de Repetição 
+#WHILE
 
 numero = 10
 print("Início do laço")
@@ -198,25 +199,153 @@ print("-"*20)
 
 #Atividades de Laços de Repetição
 
-# num1 = float(input("Digite o primeiro número: "))
-# num2 = float(input("Digite o segundo número: "))
-# num3 = float(input("Digite o terceiro número: "))
-# num4 = float(input("Digite o quarto número: "))
-# num5 = float(input("Digite o quinto número: "))
-# media = (num1 + num2 + num3 + num4 + num5) / 5
+#1
+# soma_atual = 0
+# números_lidos = 0
+# while números_lidos < 5:
+#      num_str = input("Digite um número: ")
+#      num_lido = float(num_str)
+#      soma_atual += num_lido
+#      números_lidos += 1
+# media = soma_atual / 5
 # print("A média dos números é: %.2f" % media)
 # print("-"*20)
 
-num1 = float(input("Digite o primeiro número: "))
-num2 = float(input("Digite o segundo número: "))
-num3 = float(input("Digite o terceiro número: "))
-num4 = float(input("Digite o quarto número: "))
-num5 = float(input("Digite o quinto número: "))
-soma = num1 + num2 + num3 + num4 + num5
-while num1 < 0 or num2 < 0 or num3 < 0 or num4 < 0 or num5 < 0:
-    print("Digite apenas números positivos")
-    num1 = float(input("Digite o primeiro número: "))
-    num2 = float(input("Digite o segundo número: "))
-    num3 = float(input("Digite o terceiro número: "))
-    num4 = float(input("Digite o quarto número: "))
-    num5 = float(input("Digite o quinto número: "))
+
+#2
+# soma_atual = 0
+# números_lidos = 0
+# while números_lidos < 5:
+#      num_str = input("Digite um número: ")
+#      num_lido = float(num_str)
+#      if num_lido >=0:
+#         soma_atual += num_lido
+#      números_lidos += 1
+# print("A soma é: %.2f" % soma_atual)
+# print("-"*20)
+
+#3
+# números_digitados = float(input("Digite quantos números serão lidos: "))
+# soma_atual = 0
+# números_lidos = 0
+# while números_lidos < números_digitados:
+#      num_str = input("Digite um número: ")
+#      num_lido = float(num_str)
+#      soma_atual += num_lido
+#      números_lidos += 1
+# print("O total é: %.2f" % soma_atual)
+# print("-"*20)
+
+#4
+num_atual = 2
+while num_atual <= 10:
+    resto = num_atual % 2
+    if resto == 0:
+        print("O número %d é par" % num_atual)
+    else:
+        print("O número %d é ímpar" % num_atual)    
+    num_atual += 1
+print("-"*20)
+
+#5
+# texto = input("Digite um texto: ")
+# índice= 0
+# num_vazio = 0
+# while índice < len(texto):
+#     if texto[índice] == " ":
+#         num_vazio += 1
+#     índice += 1
+# print("O texto tem %d espaços" % num_vazio)
+# print("-"*20)
+
+#For
+
+for x in range(10):
+    print(x)
+print("-"*20)
+    
+for x in range(5,10):
+    print(x)
+print("-"*20)
+
+for x in range(5,20,5):
+    print(x)
+print("-"*20)
+
+for x in range(20,5,-5):
+    print(x)
+print("-"*20)
+
+texto = "123456789"
+for x in range(len(texto)):
+    print(texto[x])
+print("-"*20)
+
+# letra = input("Digite uma letra: ")
+# if len(letra) != 1:
+#     print("Digite apenas uma letra")
+# else:
+#     texto = input("Digite um texto: ")
+#     for i in range(len(texto)):
+#         if texto[i] == letra:
+#             print("A letra %s está na posição %d" % (letra, i))
+# print("-"*20)
+
+for x in range(0,3):
+    for y in range(0,5):
+        print(x,y)
+print("-"*20)
+
+for x in range(1,11):
+    print("-"*20)
+    for y in range(1,11):
+        print("%d x %d = %d" % (x, y, x*y))
+print("-"*20)
+
+#Atividades de Laços de Repetição For
+
+#1
+# texto = input("Digite um texto: ")
+# quantidade_caracteres = 0
+# for caractere in texto:
+#     if caractere != " ":
+#         quantidade_caracteres += 1
+# print("O texto tem %d caracteres" % quantidade_caracteres)
+# print("-"*20)
+
+#2
+# fatorial = input("Digite um número para calcular o fatorial: ")
+# fatorial = int(fatorial)
+# resultado = 1
+# for i in range(1, fatorial+1):
+#     resultado *= i
+# print("O fatorial de %d é %d" % (fatorial, resultado))
+# print("-"*20)
+
+# 3
+# número_leituras = int(input("Digite o número de textos serão lidos: "))
+# texto_total = ""
+# for i in range(número_leituras):
+#     texto_total += input("Digite um texto: ")
+# print("Texto completo: ", texto_total)
+# print("-"*20)
+
+# 4
+# número = int(input("Digite um número para tabuada de divisão: "))
+# for i in range(1,11):
+#      print("%d / %d = %.2f" % (i,número, i/número))
+# print("-"*20)
+
+5
+for numero in range(3,31):
+    e_primo = True
+    
+    for num_teste in range(2,numero):
+        if numero % num_teste == 0:
+            e_primo = False
+            break
+    if e_primo:
+        print("O número %d é primo" % numero)
+    else:
+        print("O número %d não é primo" % numero)
+print("-"*20)
