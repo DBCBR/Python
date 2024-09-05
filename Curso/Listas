@@ -127,6 +127,8 @@ print("-"*20)
 
 #SET
 # Set é uma coleção de itens desordenada e não indexada. Em Python, os conjuntos são escritos com chaves.
+# set = {}
+
 
 lista_set = {}
 lista2_set = {1, 2, 3}
@@ -272,7 +274,7 @@ idades = {'Aurora': 5, 'Yasmin':10, 'Paula':35, 'David':37}
 print(idades['Paula']) #Retorna o valor da chave 'Paula'
 print(idades['David']) #Retorna o valor da chave 'David'
 
-idades.get('Yasmin') #Retorna o valor da chave 'David'
+idades.get('Yasmin') #Retorna o valor da chave 'Yasmin'
 print('-'*20)
 
 nome_números = {
