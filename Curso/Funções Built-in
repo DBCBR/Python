@@ -263,3 +263,122 @@ print("Desde o ano 2000 passou ", diferença.total_seconds() / 60, "minutos") # 
 print("Desde o ano 2000 passou ", diferença.total_seconds() / 60 / 60, "horas") # Desde o ano 2000 passou  188394.66666666666 horas
 print("Desde o ano 2000 passou ", diferença.total_seconds() / 60 / 60 / 24, "dias") # Desde o ano 2000 passou  7857.0 dias
 print('-' * 20)
+
+# data_txt = input("Digite a data no formato dd/mm/yyyy: ")
+# datetime = datetime.strptime(data_txt, "%d/%m/%Y")
+# print(datetime) # 2021-07-07 00:00:00
+# print(type(datetime)) # <class 'datetime.datetime'>
+# print('-' * 20)
+
+#Atividade
+
+1
+def subtração(a, b):
+    return (abs(a) - abs(b))
+print(subtração(-10, 20))
+print('-' * 20)
+
+2
+def soma(a, b):
+    soma = a + b
+    soma = min(soma, 10000)
+    soma = max(soma, 0)
+    return (soma)
+print(soma(9999, 2))
+print(soma(10, -20))
+print('-' * 20)
+
+3
+def menor(*números):
+    menor = números[0]
+    for i in números:
+        menor = min(menor, i)
+    return menor
+print(menor(10, 20, 30, 40, -50))
+print(menor(50, -40, 30, 20, 10))
+print('-' * 20)
+
+# 4
+# a = float(input("Digite o valor de a: "))
+# b = float(input("Digite o valor de b: "))
+# c = float(input("Digite o valor de c: "))
+
+# x1 = (-b + math.sqrt(pow(b, 2) - 4 * a * c)) / (2 * a)
+# x2 = (-b - math.sqrt(pow(b, 2) - 4 * a * c)) / (2 * a)
+# print("A solução encontrada é", x1, "e", x2)
+# print('-' * 20)
+
+5
+def troca_tamanho_letra(string):
+    return string.swapcase()
+print(troca_tamanho_letra("Python"))
+print(troca_tamanho_letra("pYTHON"))
+print('-' * 20)
+
+6
+def contar_letra(string, letra):
+    return string.count(letra)
+print(contar_letra("Python é uma linguagem de programação", "a"))
+print(contar_letra("Python é uma linguagem de programação", "z"))
+print('-' * 20)
+
+7
+def encontrar_letra(string, letra):
+    lista = []
+    for i in range(len(string)):
+        if string[i] == letra:
+            lista.append(i)
+    return lista
+print(encontrar_letra("Python é uma linguagem de programação", "a"))
+print(encontrar_letra("Python é uma linguagem de programação", "e"))
+print('-' * 20)
+
+8
+def retira_palavras(texto, palavras):
+    for palavra in palavras:
+        if palavra in texto:
+            texto = texto.replace(palavra, "*****")
+    return texto
+
+texto_usuário = "não pode falar a palavra droga ou diabo no chat"
+palavras_proibidas = ["droga", "diabo"]
+print(retira_palavras(texto_usuário, palavras_proibidas))
+print('-' * 20)
+
+9
+def eh_maiúscula_ou_minuscula(palavra):
+    return palavra.islower() or palavra.isupper()
+
+print(eh_maiúscula_ou_minuscula("PYTHON"))
+print(eh_maiúscula_ou_minuscula("python"))
+print(eh_maiúscula_ou_minuscula("Python"))
+print('-' * 20)
+
+10
+def transforma_lista(lista):
+    lista_inteiros = []
+    for item in lista:
+        if item.isdecimal():
+            lista_inteiros.append(int(item))
+    lista_inteiros.sort()
+    return lista_inteiros
+
+lista = ["10", "2er0", "30", "40", "3d0", '100']
+print(transforma_lista(lista))
+print('-' * 20)
+
+11
+# data_nascimento = input("Digite a data de nascimento no formato dd/mm/yyyy: ")
+# data_atual = datetime.now()
+# data_nascimento = datetime.strptime(data_nascimento, "%d/%m/%Y")
+# diferença = data_atual - data_nascimento
+# print("Você tem", diferença.days , "dias de vida")
+# print('-' * 20)
+
+12
+# data_aniversário = input("Digite seu próximo aniversário no formato dd/mm/yyyy: ")
+# data_atual = datetime.now()
+# data_aniversário = datetime.strptime(data_aniversário, "%d/%m/%Y")
+# diferença = data_aniversário - data_atual
+# print("Faltam", diferença.days , "dias para o seu próximo aniversário")
+# print('-' * 20)
