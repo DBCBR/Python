@@ -161,4 +161,105 @@ lista = [10, 20, 30]
 lista.reverse()
 print(lista) # [30, 20, 10]
 
-#
+#dict # Cria um dicionário a partir de uma lista de tuplas
+nomes = ('José', 'Carlos', 'João')
+dicionario = dict.fromkeys(nomes, 10)
+print(dicionario) # {'José': 10, 'Carlos': 10, 'João': 10}
+print('-' * 20)
+
+#Funções de Data e Hora
+
+from datetime import datetime, timedelta
+import datetime
+
+#y = ano
+#m = mês
+#d = dia
+#H = hora
+#M = minuto
+#S = segundo
+#A = dia da semana
+#a = dia da semana abreviado
+#B = mês
+#b = mês abreviado
+#I = hora formato 12
+#p = AM/PM
+
+#datetime.now # Retorna a data e hora atuais
+data_atual = datetime.datetime.now()
+data = data_atual.date()
+hora = data_atual.time()
+print(data_atual)
+print(data) # 2021-07-07
+print(hora) # 17:00:00.000000
+print('-' * 20)
+
+data_atual = datetime.datetime.now()
+print("Dia:", data_atual.day)
+print("Mês:", data_atual.month)
+print("Ano:", data_atual.year)
+print("Hora:", data_atual.hour)
+print("Minuto:", data_atual.minute)
+print("Segundo:", data_atual.second)
+print('-' * 20)
+
+data = datetime.date(day=8, month=9, year=2024)
+print(data) # 2024-09-08
+print(type(data)) # <class 'datetime.date'>
+print('-' * 20)
+
+hora = datetime.time(hour=10, minute=30, second=15)
+print(hora) # 10:30:15
+print('-' * 20)
+
+data = datetime.datetime(year=2024, month=9, day=8, hour=10, minute=30, second=15)
+print(data) # 2024-09-08 10:30:15
+print('-' * 20)
+
+atual = datetime.datetime.now()
+current_time = atual.strftime("%y/%m/%d %H:%M:%S")
+print(current_time) # 21/07/07 17:00:00
+print(type(current_time)) # <class 'str'>
+print('-' * 20)
+
+data = datetime.datetime(2024, 9, 8, 9, 51, 30)
+print(data.strftime("%A - %a")) # Monday - Mon
+print(data.strftime("%B - %b")) # September - Sep
+print(data.strftime("%H - %I")) # 09 - Sep
+print(data.strftime("%I - %p")) # AM - PM
+print('-' * 20)
+
+#Manipulação de Datas e Horas
+
+data1 = datetime.datetime(2024, 9, 8,)
+data2 = datetime.datetime(2024, 9, 10)
+diferença = data2 - data1
+print(diferença) # 2 days, 0:00:00
+print(type(diferença)) # <class 'datetime.timedelta'>
+print('-' * 20)
+
+from datetime import datetime, timedelta
+
+data_atual = datetime.now()
+datafutura1 = data_atual + timedelta(weeks=4)
+datafutura2 = data_atual + timedelta(days=30)
+datafutura3 = data_atual + timedelta(hours=12)
+datafutura4 = data_atual + timedelta(minutes=60)
+
+print("Data atual:", data_atual)
+print("Mais 4 semanas:", datafutura1)
+print("Mais 30 dias:", datafutura2)
+print("Mais 12 horas:", datafutura3)
+print("Mais 60 minutos:", datafutura4)
+print('-' * 20)
+
+
+data_2000 = datetime(2000, 1, 1, 0, 0, 0)
+data_atual = datetime.now()
+diferença = data_atual - data_2000
+print("Desde o ano 2000 passou ", diferença.days, "dias") # Desde o ano 2000 passou  7857 dias
+print("Desde o ano 2000 passou ", diferença.total_seconds(), "segundos") # Desde o ano 2000 passou  678220800.0 segundos
+print("Desde o ano 2000 passou ", diferença.total_seconds() / 60, "minutos") # Desde o ano 2000 passou  11303680.0 minutos
+print("Desde o ano 2000 passou ", diferença.total_seconds() / 60 / 60, "horas") # Desde o ano 2000 passou  188394.66666666666 horas
+print("Desde o ano 2000 passou ", diferença.total_seconds() / 60 / 60 / 24, "dias") # Desde o ano 2000 passou  7857.0 dias
+print('-' * 20)
