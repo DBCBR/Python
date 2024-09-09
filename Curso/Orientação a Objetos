@@ -1,0 +1,44 @@
+# Orientação a Objetos 
+
+
+class Pessoa: #classe
+    def __init__(self, nome, idade): #método construtor
+        self.nome = nome #atributo
+        self.idade = idade #atributo
+        print("Pessoa com nome %s e idade %d criada" % (self.nome, self.idade)) 
+
+pessoa1 = Pessoa("João", 30) #instância
+pessoa2 = Pessoa("Maria", 25) #instância
+print(pessoa1.nome) #acessando atributo
+print(pessoa2.idade) #acessando atributo
+print("-" * 20)
+
+class Pessoa: #classe
+    espécie = "Homo Sapiens" 
+    def __init__(self, nome, idade): #método construtor
+        self.nome = nome #atributo
+        self.idade = idade #atributo
+        print("Pessoa com nome %s e idade %d criada" % (self.nome, self.idade)) 
+
+pessoa1 = Pessoa('David', 37)
+pessoa2 = Pessoa('Paula', 35)
+print(pessoa1.espécie)
+print(pessoa2.espécie)
+print('-' * 20)
+
+class Pessoa: #classe
+    espécie = "Homo Sapiens" 
+    num_pessoas = 0
+    def __init__(self, nome, idade): #método construtor
+        self.nome = nome #atributo
+        self.idade = idade #atributo
+        Pessoa.num_pessoas += 1
+        
+pessoa1 = Pessoa('David', 37)
+print(Pessoa.num_pessoas)
+pessoa2 = Pessoa('Paula', 35)
+print(Pessoa.num_pessoas)
+pessoa3 = Pessoa('Yasmin', 10)
+print(Pessoa.num_pessoas)
+pessoa4 = Pessoa('Aurora', 5)
+
