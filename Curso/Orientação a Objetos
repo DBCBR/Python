@@ -1,1 +1,237 @@
-#
+#Orientação a Objetos
+# Classes são modelos que definem os atributos e métodos de um objeto.
+# Objetos são instâncias de uma classe.
+# Atributos são variáveis que guardam informações sobre o objeto.
+# Métodos são funções que definem o comportamento do objeto.
+
+class Pessoa: # Classe
+    def __init__(self, nome, idade): # Método construtor
+        self.nome = nome # Atributo
+        self.idade = idade # Atributo
+    def print_nome(self): # Método
+        print("Meu nome é %s " % self.nome)
+
+pessoa1 = Pessoa("João", 20) # Objeto
+pessoa2 = Pessoa("Maria", 30) # Objeto
+pessoa1.print_nome() # Meu nome é João
+pessoa2.print_nome() # Meu nome é Maria
+print('-'*20)
+
+class Pessoa: # Classe
+    def __init__(self, nome, idade): # Método construtor
+        self.nome = nome # Atributo
+        self.idade = idade # Atributo
+        
+    def print_string(self, nome): # Método com parâmetro nome
+        print("Meu nome é %s " % nome) # Imprimindo o nome
+        
+    def print_nome(self): # Método sem parâmetro 
+        self.print_string(self.nome) # Chamando o método print_string
+
+pessoa1 = Pessoa("João", 20) # Objeto
+pessoa2 = Pessoa("Maria", 30) # Objeto
+pessoa1.print_nome() # Meu nome é João
+pessoa2.print_nome() # Meu nome é Maria
+print('-'*20)
+
+class Pessoa: # Classe
+    def __init__(self, nome): # Método construtor
+        self.nome = nome # Atributo nome
+    def insere_idade(self, idade): # Método com parâmetro idade
+        self.idade = idade # Atributo idade
+
+pessoa1 = Pessoa("João") # Objeto
+pessoa1.insere_idade(20) # Chamando o método insere_idade
+print(pessoa1.idade) # 20
+print('-'*20)
+
+class Tipo1:
+    def __init__(self, outra_classe): # Método construtor
+        self.outra = outra_classe # Atributo
+class Tipo2:
+    def __init__(self): # Método construtor
+        self.número = 10 # Atributo
+
+classe2 = Tipo2() # Objeto
+classe1 = Tipo1(classe2) # Objeto
+print(classe1.outra.número) # 10
+print('-'*20)
+
+class Exemplo:
+    def __init__(self):
+        pass
+
+lista = []
+ex1 = Exemplo()
+ex2 = Exemplo()
+lista.append(ex1)
+lista.append(ex2)
+print(lista[1])
+print('-'*20)
+
+class FormaGeométrica: # Classe
+    def __init__(self, altura, largura): # Método construtor
+        self.altura = altura # Atributo
+        self.largura = largura # Atributo
+        
+class Quadrado(FormaGeométrica):
+    lado = 10
+
+class Triângulo(FormaGeométrica):
+    angulo = 30
+
+class Retângulo(FormaGeométrica):
+    lado_menor = 5
+
+quadrado = Quadrado(10, 10) # Objeto
+triângulo = Triângulo(15, 10) # Objeto
+retângulo = Retângulo(5, 15) # Objeto
+
+print(quadrado.altura) # 10 
+print(quadrado.largura) # 10
+print(quadrado.lado) # 10
+
+print(triângulo.altura) # 15
+print(triângulo.largura) # 10
+print(triângulo.angulo) # 30
+
+print(retângulo.altura) # 5 
+print(retângulo.largura) # 15
+print(retângulo.lado_menor) # 5
+print('-'*20)
+
+class FormaGeométrica: # Classe
+    def __init__(self, altura, largura): # Método construtor
+        self.altura = altura # Atributo
+        self.largura = largura # Atributo
+    def função_herdade(self): # Método
+        print("Função herdada")
+class Quadrado(FormaGeométrica):
+    pass
+
+class Triângulo(FormaGeométrica):
+    pass
+
+class Retângulo(FormaGeométrica):
+    pass
+
+quadrado = Quadrado(10, 10) # Objeto
+triângulo = Triângulo(15, 10) # Objeto
+retângulo = Retângulo(5, 15) # Objeto
+
+quadrado.função_herdade() # Função herdada
+triângulo.função_herdade() # Função herdada
+retângulo.função_herdade() # Função herdada
+print('-'*20)
+
+#Override (sobrescrita de métodos)
+
+class ClassePai: # Classe
+    def __init__(self): # Método construtor
+        print("Função da classe pai")
+        
+class ClasseFilha(ClassePai): # Classe filha
+    def __init__(self): # Método construtor
+        print("Função da classe filha")
+        
+class ClasseFilha2(ClassePai): # Classe filha
+    def __init__(self): # Método construtor
+        print("Função da classe filha 2")
+        
+pai = ClassePai() # Função da classe pai
+filha1 = ClasseFilha() # Função da classe filha
+filha2 = ClasseFilha2() # Função da classe filha 2
+print('-'*20)
+
+class FormaGeométrica: # Classe
+    def __init__(self, altura, largura): # Método construtor
+        self.altura = altura # Atributo
+        self.largura = largura # Atributo
+
+class Quadrado(FormaGeométrica):
+    def __init__(self, altura, largura, atributo_quadrado): # Método construtor
+        FormaGeométrica.__init__(self, altura, largura) # Chamando o método construtor da classe pai
+        self.atributo_quadrado = atributo_quadrado # Atributo
+        
+class Triangulo(FormaGeométrica):
+    def __init__(self, altura, largura, atributo_triangulo): # Método construtor
+        FormaGeométrica.__init__(self, altura, largura) # Chamando o método construtor da classe pai
+        self.atributo_triangulo = atributo_triangulo # type: ignore # Atributo
+        
+class Retângulo(FormaGeométrica):
+    def __init__(self, altura, largura, atributo_retângulo): # Método construtor
+        FormaGeométrica.__init__(self, altura, largura) # Chamando o método construtor da classe pai
+        self.atributo_retângulo = atributo_retângulo # type: ignore # Atributo
+quadrado = Quadrado(10, 10, 'quadrado') # Objeto
+triangulo = Triangulo(15, 10, 'triangulo') # Objeto
+retângulo = Retângulo(5, 15, 'retângulo') # Objeto
+
+print(quadrado.altura) # 10
+print(quadrado.atributo_quadrado) # quadrado
+print(triangulo.altura) # 15
+print(triangulo.atributo_triangulo) # triangulo
+print(retângulo.altura) # 5
+print(retângulo.atributo_retângulo) # retângulo
+print('-'*20)
+
+class FormaGeométrica: # Classe
+    def __init__(self, altura, largura): # Método construtor
+        self.altura = altura # Atributo
+        self.largura = largura # Atributo
+    def calcula_area(self): # Método
+        pass
+    
+class Quadrado(FormaGeométrica):
+    def calcula_area(self): # Método
+        return self.altura * self.largura
+    
+class Triângulo(FormaGeométrica):
+    def calcula_area(self): # Método
+        return self.altura * self.largura / 2
+    
+class Retângulo(FormaGeométrica):
+    def calcula_area(self): # Método
+        return self.altura * self.largura
+
+quadrado = Quadrado(10, 10) # Objeto
+triângulo = Triângulo(15, 10) # Objeto
+retângulo = Retângulo(5, 15) # Objeto
+
+print(quadrado.calcula_area()) # 100
+print(triângulo.calcula_area()) # 75
+print(retângulo.calcula_area()) # 75
+print('-'*20)
+
+class Veículo: # Classe
+    def __init__(self, marcha): # Método construtor
+        self.marcha = marcha # Atributo
+    def aumenta_marcha(self): # Método
+        self.marcha += 1 # Incrementando a marcha
+        self.marcha = min(self.marcha, 5) # Limitando a marcha a 5
+    def reduz_marcha(self): # Método
+        self.marcha -= 1 # Decrementando a marcha
+        self.marcha = max(self.marcha, 0) # Limitando a marcha a 0
+
+class Carro(Veículo): # Classe
+    def __init__(self, marcha): # Método construtor
+        Veículo.__init__(self, marcha) # Chamando o método construtor da classe pai
+
+class Moto(Veículo): # Classe
+    def __init__(self, marcha): # Método construtor
+        Veículo.__init__(self, marcha) # Chamando o método construtor da classe pai
+    def aumenta_marcha(self): # Método
+        self.marcha += 1 # Incrementando a marcha
+        self.marcha = min(self.marcha, 6) # Limitando a marcha a 6
+        
+carro = Carro(1) # Objeto
+carro.aumenta_marcha() # Incrementando a marcha
+print(carro.marcha) # 2
+
+moto = Moto(1) # Objeto
+moto.aumenta_marcha() # Incrementando a marcha
+print(moto.marcha) # 2
+print('-'*20)
+
+#Herança Múltipla
+#Herança múltipla é a capacidade de uma subclasse herdar de múltiplas superclasses.
+
