@@ -235,3 +235,597 @@ print('-'*20)
 #Herança Múltipla
 #Herança múltipla é a capacidade de uma subclasse herdar de múltiplas superclasses.
 
+class Base1: # Classe
+    def __init__(self, atributo1): # Método construtor
+        self.atributo1 = atributo1 # Atributo
+    def Base1_print(self):
+        print("Base1")
+
+class Base2: # Classe
+    def __init__(self, atributo2): # Método construtor
+        self.atributo2 = atributo2 # Atributo
+    def Base2_print(self):
+        print("Base2")
+
+class MinhaClasse(Base1, Base2): # Classe
+    def __init__(self):
+        Base1.__init__(self, 10) # Chamando o método construtor da classe Base1
+        Base2.__init__(self, 20) # Chamando o método construtor da classe Base2
+        
+var = MinhaClasse() # Objeto
+print(var.atributo1) # 10
+print(var.atributo2) # 20
+var.Base1_print() # Base1
+var.Base2_print() # Base2
+print('-'*20)
+
+#Modificadores de Acesso
+#Public: Atributos e métodos públicos podem ser acessados por qualquer classe.
+#Protected: Atributos e métodos protegidos só podem ser acessados por classes filhas.
+#Private: Atributos e métodos privados só podem ser acessados pela própria classe.
+#Em Python, não existem modificadores de acesso, mas é possível simular o comportamento de atributos e métodos protegidos e privados.
+
+# class Segredo:
+#     def __init__(self):
+#         self.__segredo = 'Senha 123' # Atributo privado
+
+# seg = Segredo() # Objeto
+# print(seg.__segredo) # AttributeError: 'Segredo' object has no attribute '__segredo'
+# print('-'*20)
+
+class Segredo: # Classe
+    def __init__(self): # Método construtor
+        self.__segredo = 'Senha 123' # Atributo privado
+
+    def __printa_segredo(self): # Método privado
+        print(self.__segredo)
+        
+    def printa_segredo(self): # Método público
+        self.__printa_segredo() # Chamando o método privado
+
+seg = Segredo() # Objeto
+seg.printa_segredo() # Senha 123
+print('-'*20)
+
+class Base:
+    def __base__privada(self):
+        print("Pertenço a classe Base")
+    
+    def _baseprotegida(self):
+        print("Pertenço a classe Base e a quem me herdar")
+        
+class Filha(Base):
+    def acessa_base_protegida(self):
+        self._baseprotegida()
+
+filha = Filha()
+filha.acessa_base_protegida()
+filha._baseprotegida()
+print('-'*20)
+
+class Veículo: # Classe
+    def __init__(self): # Método construtor
+        self.__marcha = 1 # Atributo
+    def aumenta_marcha(self): # Método
+        self.__marcha += 1 # Incrementando a marcha
+        self.__marcha = min(self.__marcha, 5) # Limitando a marcha a 5
+    def reduz_marcha(self): # Método
+        self.__marcha -= 1 # Decrementando a marcha
+        self.__marcha = max(self.__marcha, 1) # Limitando a marcha a 1
+    def marcha_atual(self): # Método
+        return self.__marcha # Retornando a marcha
+
+carro = Veículo() # Objeto
+carro.aumenta_marcha()# Incrementando a marcha
+carro.aumenta_marcha()# Incrementando a marcha
+carro.aumenta_marcha()# Incrementando a marcha
+carro.aumenta_marcha()# Incrementando a marcha
+carro.aumenta_marcha()# Incrementando a marcha
+print(carro.marcha_atual()) # 2
+carro.reduz_marcha() # Decrementando a marcha
+carro.reduz_marcha() # Decrementando a marcha
+carro.reduz_marcha() # Decrementando a marcha
+carro.reduz_marcha() # Decrementando a marcha
+print(carro.marcha_atual()) # 1
+print('-'*20)
+
+#Protegendo Atributos com Property
+#A função property() permite proteger atributos de uma classe, evitando que sejam acessados diretamente.
+#property(fget, fset, fdel, doc)
+
+class Pessoa: # Classe
+    def __init__(self, nome): # Método construtor
+        self.__nome = nome # Atributo privado
+    
+    def get_nome(self): # Método get
+        print("Pegando o nome") # Mensagem
+        return self.__nome # Retornando o nome
+        
+    nome = property(get_nome) # Propriedade
+
+instancia = Pessoa("João") # Objeto
+print(instancia.nome) # João
+print('-'*20)
+
+class Pessoa: # Classe
+    def __init__(self, nome): # Método construtor
+        self.__nome = nome # Atributo privado
+    
+    def get_nome(self): # Método get
+        print("Pegando o nome") # Mensagem
+        return self.__nome # Retornando o nome
+    
+    def set_nome(self, nome): # Método set
+        if len(nome)>0: # Se o nome não for vazio
+            print("Alterando o nome") # Mensagem
+            self.__nome = nome # Alterando o nome
+        
+    nome = property(get_nome, set_nome) # Propriedade
+
+instancia = Pessoa("João") # Objeto
+print(instancia.nome) # João
+instancia.nome = "Maria" # Alterando o nome
+print(instancia.nome) # Maria
+print('-'*20)
+
+class Pessoa: # Classe
+    def __init__(self, nome): # Método construtor
+        self.__nome = nome # Atributo privado
+       
+    def set_nome(self, nome): # Método set
+        if len(nome)>0: # Se o nome não for vazio
+            print("Alterando o nome") # Mensagem
+            self.__nome = nome # Alterando o nome
+        
+    nome = property(fset= set_nome) # Propriedade
+    
+instancia = Pessoa("João") # Objeto
+instancia.nome = "Maria" # Alterando o nome
+print('-'*20)
+
+#Protegendo atributos com decoradores
+#Decoradores são funções que modificam o comportamento de outras funções ou métodos.
+
+class Natural: # Classe
+    def __init__(self, número): # Método construtor
+        self.__número = número # Atributo privado
+    
+    @property # Decorador
+    def número(self): # Método get
+        print("Pegando o número") # Mensagem
+        return self.__número # Retornando o número
+    @número.setter # Decorador
+    def número(self, value): # Método set
+        if value >= 0: # Se o número for maior ou igual a 0
+            self.__número = value # Alterando o número
+            print("Setando o número para", value) # Mensagem
+            
+número = Natural(10) # Objeto
+número.número = 20 # Setando o número para 20
+print(número.número) # Pegando o número
+print('-'*20)
+
+class Pessoa: # Classe
+    def __init__(self, nome): # Método construtor
+        self.__nome = nome # Atributo privado
+    @property # Decorador
+    def nome(self): # Método get
+        return self.__nome.capitalize() # Retornando o nome em maiúsculo
+    @nome.setter # Decorador
+    def nome(self, value): # Método set
+        if len(value)!=0: # Se o nome não for vazio
+            self.__nome = value # Alterando o nome
+
+pessoa = Pessoa("joão") # Objeto
+print(pessoa.nome) # João
+pessoa.nome = "maria" # Alterando o nome
+print(pessoa.nome) # Maria
+pessoa.nome = "" # Alterando o nome
+print(pessoa.nome) # Maria
+
+#Métodos Estáticos
+#Métodos estáticos são métodos que não precisam de uma instância da classe para serem chamados.
+#Eles são definidos com o decorador @staticmethod.
+
+class Teste: # Classe
+    def __init__(self, gasolina): # Método construtor
+        pass # Passando
+    
+    @classmethod # Decorador
+    def class_method(cls): # Método de classe
+        print(cls) # Imprimindo a classe
+    @staticmethod # Decorador
+    def static_method(): # Método estático
+        print("Método estático") # Mensagem
+
+Teste.class_method() # <class '__main__.Teste'>
+Teste.static_method() # Método estático
+
+testando = Teste("aditivada") # Objeto
+testando.class_method() # <class '__main__.Teste'>
+print('-'*20)
+class Veículo: # Classe
+    def __init__(self, nome, gasolina, potencia): # Método construtor
+        self.nome = nome # Atributo
+        self.gasolina = gasolina # Atributo
+        self.potencia = potencia # Atributo
+        
+    
+    @classmethod # Decorador
+    def cria_carro(cls): # Método de classe
+        return cls("Carro", "Comum", 200) # Retornando um carro
+    @classmethod # Decorador
+    def cria_moto(cls): # Método de classe
+        return cls("Moto", "Aditivada", 150) # Retornando uma moto
+    @classmethod # Decorador
+    def cria_caminhão(cls): # Método de classe
+        return cls("Caminhão", "Diesel", 300) # Retornando um caminhão
+
+veículo1 = Veículo.cria_carro() # Objeto
+veículo2 = Veículo.cria_moto() # Objeto
+veículo3 = Veículo.cria_caminhão() # Objeto
+
+print(veículo1.nome) # Carro
+print(veículo2.gasolina) # Aditivada
+print(veículo3.potencia) # 300
+print('-'*20)
+
+class Veículo: # Classe
+    __número_veículos = 0 # Atributo privado
+    def __init__(self, nome, gasolina, potencia): # Método construtor
+        self.nome = nome # Atributo
+        self.gasolina = gasolina # Atributo
+        self.potencia = potencia # Atributo
+        Veículo.__número_veículos += 1 # Incrementando o número de veículos    
+    @staticmethod # Decorador
+    def get_número_veículos(): # Método estático
+        return Veículo.__número_veículos # Retornando o número de veículos
+
+veículo1 = Veículo("Carro", "Comum", 200) # Objeto
+veículo2 = Veículo("Moto", "Aditivada", 150) # Objeto
+veículo3 = Veículo("Caminhão", "Diesel", 300) # Objeto
+print(Veículo.get_número_veículos()) # 3
+print(veículo1.get_número_veículos()) # 3
+print('-'*20)
+
+#Copia por valor e por referência
+#Em Python, a passagem de parâmetros é feita por referência, ou seja, a variável passada como argumento é um ponteiro para o objeto.
+#Se a variável for imutável, a passagem é feita por valor, ou seja, uma cópia do valor é passada como argumento.
+#Se a variável for mutável, a passagem é feita por referência, ou seja, um ponteiro para o objeto é passado como argumento.
+
+lst1 = 10 # Imutável
+lst2 = lst1 # Passagem por valor
+lst2 = 20 # Alterando o valor
+print(lst1) # 10
+print('-'*20) 
+
+lst1 = [1,2,3] # Mutável
+lst2 = lst1 # Passagem por referência
+lst2.append(4) # Alterando o valor
+print(lst1) # [1, 2, 3, 4]
+print('-'*20)
+
+class Classe: # Classe
+    def __init__(self): # Método construtor
+        self.num = 10 # Atributo
+classe1 = Classe() # Objeto
+classe2 = classe1 # Passagem por referência
+classe1.num = 20 # Alterando o valor
+print(classe2.num) # 20
+print('-'*20)
+
+from copy import copy
+from typing import Any # Importando a função copy
+
+lst1 = [1,2,3] # Mutável
+lst2 = copy(lst1) # Passagem por valor
+lst2.append(4) # Alterando o valor
+print(lst1) # [1, 2, 3]
+print("-"*20)
+
+class Classe: # Classe
+    def __init__(self): # Método construtor
+        self.num = 10 # Atributo
+classe1 = Classe() # Objeto
+classe2 = copy(classe1) # Passagem por valor
+classe1.num = 20 # Alterando o valor
+print(classe2.num) # 10
+print('-'*20)
+
+class Classe: # Classe
+    def __init__(self): # Método construtor
+        self.num = 10 # Atributo
+classe1 = Classe() # Objeto
+classe2 = classe1 # Passagem por referência
+print(classe2 is classe1) # True
+print('-'*20)
+
+class Classe: # Classe
+    def __init__(self): # Método construtor
+        self.num = 10 # Atributo
+classe1 = Classe() # Objeto
+classe2 = copy(classe1) # Passagem por valor
+print(classe2 is classe1) # False
+print('-'*20)
+
+#Deletando Objetos
+#O comando del é utilizado para deletar objetos em Python.
+#Quando um objeto é deletado, o espaço de memória que ele ocupava é liberado.
+#O comando del não deleta o objeto, mas sim a referência para o objeto.
+#O garbage collector é responsável por deletar objetos que não são mais referenciados.
+#O comando del pode ser utilizado para deletar variáveis, listas, dicionários, etc.
+
+# número = 10 # Variável
+# del número # Deletando a variável
+# print(número) # NameError: name 'número' is not defined
+# print('-'*20)
+
+# arr = [1,2,3] # Lista
+# del arr # Deletando a lista
+# print(arr) # NameError: name 'arr' is not defined
+# print('-'*20)
+
+arr = [1,2,3] # Lista
+del arr[0] # Deletando o elemento
+print(arr) # [2, 3]
+print('-'*20)
+
+class Teste: # Classe
+    def __init__(self): # Método construtor
+        pass # Passando
+
+variável = Teste() # Objeto
+del variável # Deletando o objeto
+print('-'*20)
+
+# class Teste:
+#     def __init__(self, num):
+#         self.num = num
+
+# variável = Teste(10)
+# )print(variável.num)
+# del variável
+# print(variável.num) # NameError: name 'variável' is not defined
+# print('-'*20
+
+class Teste: # Classe
+    def __init__(self): # Método construtor
+        self.lista = [1,2,3] # Atributo
+    def __del__(self): # Método destrutor
+        print("Objeto deletado") # Mensagem
+
+teste = Teste() # Objeto
+del teste # Deletando o objeto
+print('-'*20)
+
+class Pessoa: # Classe
+    def __init__(self, nome): # Método construtor
+        self.__nome = nome # Atributo
+        
+    def get_nome(self): # Método get
+        print("Pegando o nome") # Mensagem
+        return self.__nome # Retornando o nome
+    
+    def set_nome(self, nome): # Método set
+        print("Setando nome") # Mensagem
+        self.__nome = nome # Alterando o nome
+        
+    def del_nome(self): # Método del
+        print("Deletando nome") # Mensagem
+        del self.__nome # Deletando o nome
+
+    nome = property(get_nome, set_nome, del_nome) # Propriedade
+    
+instancia = Pessoa("João") # Objeto
+
+del instancia.nome # Deletando o nome
+print('-'*20)
+
+class Pessoa: # Classe
+    def __init__(self, nome): # Método construtor
+        self.__nome = nome # Atributo
+        
+    @property # Decorador
+    def nome(self): # Método get
+        return self.__nome # Retornando o nome
+    
+    @nome.deleter # Decorador
+    def nome(self): # Método del
+        print("Deletando o nome") # Mensagem
+        del self.__nome # Deletando o nome
+        
+instancia = Pessoa("João") # Objeto
+del instancia.nome # Deletando o nome
+print('-'*20)
+
+#Testando tipos de objetos
+
+e_inteiro = isinstance(5, int)
+print(e_inteiro) # True
+print('-'*20)
+    
+e_inteiro = isinstance(5, (int, float, str))
+print(e_inteiro) # True
+print('-'*20)
+
+class Base: # Classe
+    pass # Passando
+
+classe = Base() # Objeto
+e_base = isinstance(classe, Base)
+print(e_base) # True
+print('-'*20)
+
+class Base: # Classe
+    def __init__(self): # Método construtor
+        pass # Passando
+
+class Herdeiro(Base): # Classe
+    def __init__(self): # Método construtor
+        pass # Passando
+
+classe = Herdeiro() # Objeto
+e_base = isinstance(classe, Base) # True
+e_herdeiro = isinstance(classe, Herdeiro) # True
+print(e_base) # True
+print(e_herdeiro) # True
+print('-'*20)
+
+class Base: # Classe
+    def __init__(self): # Método construtor
+        pass # Passando
+
+class Herdeiro(Base): # Classe
+    def __init__(self): # Método construtor
+        pass # Passando
+
+classe = Base() # Objeto
+e_base = isinstance(classe, Base) # True
+e_herdeiro = isinstance(classe, Herdeiro) # False
+print(e_base) # True
+print(e_herdeiro) # False
+print('-'*20)
+
+class Base: # Classe
+    def __init__(self): # Método construtor
+        pass # Passando
+
+class Herdeiro(Base): # Classe
+    def __init__(self): # Método construtor
+        pass # Passando
+
+e_base = issubclass(Base, Herdeiro) # False
+e_herdeiro = issubclass(Herdeiro, Base) # True
+print(e_base) # False
+print(e_herdeiro) # True
+print('-'*20)
+
+def soma(num1, num2): # Função
+    if isinstance(num1, (int, float)) and isinstance(num2, (int, float)): # Se os números forem inteiros ou float
+        return num1 + num2 # Retornando a soma
+    else: # Senão
+        return None
+
+print(soma(10, 20)) # 30
+print(soma(10, '20')) # None
+print('-'*20)
+
+class Veículo: # Classe
+    def __init__(self): # Método construtor
+        pass
+    def acelera(self): # Método
+        pass
+
+class Moto(Veículo): # Classe
+    def __init__(self):
+        pass
+class Carro(Veículo): # Classe
+    def __init__(self):
+        pass
+    def ré(self): # Método
+        print("Dando ré") # Mensagem
+
+def faz_re(var): # Função
+    if isinstance(var, Carro): # Se a variável for um carro
+        var.ré() # Chamando o método ré
+    else: # Senão
+        print("Não tem ré") # Mensagem
+
+motinha = Moto() # Objeto
+carrinho = Carro() # Objeto
+
+faz_re(motinha) # None
+faz_re(carrinho) # Dando ré
+print('-'*20)
+
+#Uso de With
+#O comando with é utilizado para abrir e fechar arquivos.
+#O comando with garante que o arquivo será fechado mesmo se ocorrer um erro durante a execução do código.
+
+class Lista(): # Classe
+    def __init__(self): # Método construtor
+        pass
+    
+    def __enter__(self): # Método enter
+        print("Memória Iniciada") # Mensagem
+        self.lista = [i for i in range(0,10)] # Lista
+        return self.lista # Retornando a lista
+    
+    def __exit__(self, *args, **kwargs): # Método exit
+        print("Memória Liberada") # Mensagem
+        del self.lista # Deletando a lista
+        
+with Lista() as temp_lista: # Abrindo o arquivo
+    for i in temp_lista: # Para cada elemento na lista
+        print(i) # Imprimindo o elemento
+
+print("Aqui o objeto já foi deletado") # Mensagem
+print('-'*20)
+
+class Lista(): # Classe
+    def __init__(self): # Método construtor
+        pass
+    
+    def __enter__(self): # Método enter
+        print("Memória Iniciada") # Mensagem
+        self.lista = [i for i in range(0,10)] # Lista
+        return self.lista # Retornando a lista
+    
+    def __exit__(self, *args, **kwargs): # Método exit
+        print("Memória Liberada") # Mensagem
+        del self.lista # Deletando a lista
+
+minha_lista = Lista() # Objeto
+        
+with minha_lista as temp_lista: # Abrindo o arquivo
+    for i in temp_lista: # Para cada elemento na lista
+        print(i) # Imprimindo o elemento
+
+print("Aqui o objeto já foi deletado") # Mensagem
+print('-'*20)
+
+#Sobrecarga de Operadores
+#Sobrecarga de operadores é a capacidade de uma classe definir o comportamento de operadores como +, -, *, /, etc.
+#Em Python, a sobrecarga de operadores é feita através de métodos especiais.
+#Métodos especiais são métodos que começam e terminam com dois underlines.
+#Métodos especiais são chamados automaticamente quando uma operação é realizada.
+#Métodos especiais são utilizados para sobrecarga de operadores, conversão de tipos, etc.
+
+class MeuNumero: # Classe
+    def __init__(self, número): # Método construtor
+        self.número = número # Atributo
+    def __add__(self, outro): # Método especial
+        return self.número + outro.número # Retornando a soma
+
+num1 = MeuNumero(10) # Objeto
+num2 = MeuNumero(20) # Objeto
+print(num1 + num2) # 30
+print('-'*20)
+
+class MeuNumero: # Classe
+    def __init__(self, número): # Método construtor
+        self.número = número # Atributo
+    def __add__(self, outro): # Método especial
+        soma = self.número + outro.número # Retornando a soma
+        return MeuNumero(soma) # Retornando o objeto
+
+num1 = MeuNumero(10) # Objeto
+num2 = MeuNumero(20) # Objeto
+num3 = num1 + num2 # Objeto
+print(num3.número) # 30
+print('-'*20)
+
+class MeuNumero: # Classe
+    def __init__(self, número): # Método construtor
+        self.número = número # Atributo
+    def __sub__(self, outro): # Método especial
+            return self.número - outro.número # Retornando a subtração
+
+num1 = MeuNumero(20) # Objeto
+num2 = MeuNumero(10) # Objeto
+print(num1 - num2) # 10
+print('-'*20)
+
+#Atividade
+
+1
