@@ -444,6 +444,7 @@ Teste.static_method() # Método estático
 testando = Teste("aditivada") # Objeto
 testando.class_method() # <class '__main__.Teste'>
 print('-'*20)
+
 class Veículo: # Classe
     def __init__(self, nome, gasolina, potencia): # Método construtor
         self.nome = nome # Atributo
@@ -829,3 +830,198 @@ print('-'*20)
 #Atividade
 
 1
+class Carro: # Classe
+    def __init__(self, cavalos=None, kmporlitro=None): # Método construtor unificado
+        self.cavalos = cavalos # Atributo
+        self.kmporlitro = kmporlitro # Atributo
+
+# Criando objetos com diferentes atributos
+potencia1 = Carro(cavalos=200) # Objeto com atributo cavalos
+consumo1 = Carro(kmporlitro=10) # Objeto com atributo kmporlitro
+potencia2 = Carro(cavalos=150) # Objeto com atributo cavalos
+consumo2 = Carro(kmporlitro=15) # Objeto com atributo kmporlitro
+# Acessando e imprimindo os atributos
+print("O carro 1 tem:",potencia1.cavalos, "cavalos de força!") # 200
+print("O carro 1 consome:",consumo1.kmporlitro, "litros por Kilometro!\n") # 10
+print("O carro 2 tem:",potencia2.cavalos, "cavalos de força!") # 150
+print("O carro 2 consome:",consumo2.kmporlitro, "litros por Kilometro!") # 15
+print('-'*20)
+
+2
+class Pessoa: # Classe
+    def __init__(self,nome, cpf, dependente=None): # Método construtor
+        self.nome = nome # Atributo
+        self.cpf = cpf # Atributo
+        self.dependente = dependente # Atributo
+
+class Dependente(Pessoa): # Classe filha
+    def __init__(self, nome, cpf, dependente=None): # Método construtor
+        Pessoa.__init__(self, nome, cpf,dependente) # Chamando o método construtor da classe pai
+        
+# Criando objetos com diferentes atributos
+david = Pessoa(nome="David",cpf=123456789, dependente=Dependente(nome="Yasmin", cpf=987654321)) # Objeto com atributo dependente
+yasmin = Dependente(nome="Yasmin",cpf=987654321) # Objeto com atributo dependente
+# Acessando e imprimindo os atributos
+print("O David tem o CPF:", david.cpf, "e o(a) dependente", david.dependente.nome, "com o CPF:", david.dependente.cpf) # 123456789 e o(a) 987654321
+print("A Yasmin tem o CPF:", yasmin.cpf, "e o(a) dependente:", yasmin.dependente) # 987654321 e o(a) None
+print('-'*20)
+
+3
+class Veículo: # Classe
+    def __init__(self, nome, peso, potencia, rodas): # Método construtor
+        self.nome = nome # Atributo
+        self.peso = peso # Atributo
+        self.potencia = potencia # Atributo
+        self.rodas = rodas # Atributo
+        
+class Ônibus(Veículo): # Classe filha
+    def __init__(self, nome, peso, potencia, rodas): # Método construtor
+        Veículo.__init__(self, nome, peso, potencia, rodas) # Chamando o método construtor da classe pai
+
+class Carro(Veículo): # Classe filha
+    def __init__(self, nome, peso, potencia, rodas): # Método construtor
+        Veículo.__init__(self, nome, peso, potencia, rodas) # Chamando o método construtor da classe pai
+
+class Moto(Veículo): # Classe filha
+    def __init__(self, nome, peso, potencia, rodas): # Método construtor
+        Veículo.__init__(self, nome, peso, potencia, rodas) # Chamando o método construtor da classe pai
+
+# Criando objetos com diferentes atributos
+ônibus = Ônibus(nome="Ônibus", peso=1000, potencia=200, rodas=6) # Objeto
+carro = Carro(nome="Carro", peso=500, potencia=150, rodas=4) # Objeto
+moto = Moto(nome="Moto", peso=200, potencia=100, rodas=2) # Objeto
+# Acessando e imprimindo os atributos
+print("O Ônibus tem:",ônibus.peso, "kg de peso,", ônibus.potencia, "de potencia, e possui", ônibus.rodas, "rodas.") # 1000 kg de peso 200 de potencia, e possui: 6 rodas.
+print("O Carro tem:",carro.peso, "kg de peso,", carro.potencia, "de potencia, e possui", carro.rodas, "rodas.") # 500 kg de peso 150 de potencia, e possui: 4 rodas.
+print("A Moto tem:",moto.peso, "kg de peso,", moto.potencia, "de potencia, e possui", moto.rodas, "rodas.") # 200 kg de peso 100 de potencia, e possui: 2 rodas.
+print('-'*20)
+
+4
+class Veículo: # Classe
+    def __init__(self, peso, potencia): # Método construtor
+        self.peso = peso # Atributo
+        self.potencia = potencia # Atributo
+    def distancia_percorrida(self): # Método
+        return (self.potencia / self.peso) * 1000 # Retornando a distância percorrida
+    
+class Ônibus(Veículo): # Classe filha
+    def __init__(self, peso, potencia): # Método construtor
+        Veículo.__init__(self, peso, potencia) # Chamando o método construtor da classe pai
+
+class Carro(Veículo): # Classe filha
+    def __init__(self, peso, potencia): # Método construtor
+        Veículo.__init__(self, peso, potencia) # Chamando o método construtor da classe pai
+
+class Moto(Veículo): # Classe filha
+    def __init__(self, peso, potencia): # Método construtor
+        Veículo.__init__(self, peso, potencia) # Chamando o método construtor da classe pai
+        
+# Criando objetos com diferentes atributos
+ônibus = Ônibus(peso=1000, potencia=200) # Objeto
+carro = Carro(peso=500, potencia=150) # Objeto
+moto = Moto(peso=200, potencia=100) # Objeto
+# Acessando e imprimindo os atributos
+print("O Ônibus percorre:",ônibus.distancia_percorrida(), "metros por litro.") # 200 metros por litro.
+print("O Carro percorre:",carro.distancia_percorrida(), "metros por litro.") # 300 metros por litro.
+print("A Moto percorre:",moto.distancia_percorrida(), "metros por litro.") # 500 metros por litro.
+print('-'*20)
+
+5
+class Veículo: # Classe
+    def __init__(self, peso, potencia): # Método construtor
+        self.peso = peso # Atributo
+        self.potencia = potencia # Atributo
+        
+    def distancia_percorrida(self): # Método
+        return (self.potencia / self.peso) * 1000 # Retornando a distância percorrida
+    
+    def __lt__(self, outro): # Método especial
+        return self.potencia < outro.potencia # Retornando a comparação
+    
+    def __gt__(self, outro): # Método especial
+        return self.potencia > outro.potencia # Retornando a comparação   
+class Ônibus(Veículo): # Classe filha
+    def __init__(self, peso, potencia): # Método construtor
+        Veículo.__init__(self, peso, potencia) # Chamando o método construtor da classe pai
+
+class Carro(Veículo): # Classe filha
+    def __init__(self, peso, potencia): # Método construtor
+        Veículo.__init__(self, peso, potencia) # Chamando o método construtor da classe pai
+
+class Moto(Veículo): # Classe filha
+    def __init__(self, peso, potencia): # Método construtor
+        Veículo.__init__(self, peso, potencia) # Chamando o método construtor da classe pai
+        
+# Criando objetos com diferentes atributos
+ônibus = Ônibus(peso=1000, potencia=200) # Objeto
+carro = Carro(peso=500, potencia=150) # Objeto
+moto = Moto(peso=200, potencia=100) # Objeto
+# Acessando e imprimindo os atributos
+print(f"O Ônibus é mais potente que o Carro? ", ônibus > carro) # True
+print(f"O Carro é mais potente que a Moto? ", carro > moto) # True
+print(f"A Moto é menos potente que o Ônibus? ", moto < ônibus) # False
+print('-'*20)
+
+6
+class Negativo: # Classe
+    def __init__(self, valor): # Método construtor
+        self.__valor = 0 # Atributo
+        self.valor = valor # Atributo
+
+    @property # Decorador
+    def valor(self): # Método get
+        return self.__valor # Retornando o valor
+
+    @valor.setter # Decorador
+    def valor(self, value): # Método set
+        if value <= 0: # Se o valor for menor ou igual a 0
+            self.__valor = value # Alterando o valor
+
+    def __lt__(self, other): # Método especial
+        return self.__valor < other.__valor # Retornando a comparação
+
+    def __gt__(self, other): # Método especial
+        return self.__valor > other.__valor # Retornando a comparação
+
+    def __sub__(self, other): # Método especial
+        sub = self.__valor - other.__valor # Subtraindo os valores
+        if sub > 0: # Se o resultado for positivo
+            sub = 0
+        return sub # Retornando o resultado
+
+# Testando a classe NumeroNegativo
+num1 = Negativo(-10) # Objeto
+num2 = Negativo(-5) # Objeto
+num3 = Negativo(5) # Objeto
+
+print(num1.valor, num2.valor, num3.valor) # -10 -5 5
+print(num1 < num2) # True
+print(num1 > num3) # False
+print(num1 - num2) # 0
+print(num1 - num3) # -5
+print(num3 - num1) # 0
+print('-'*20)
+
+7
+def verificar_tipo(obj): # Função
+    if isinstance(obj, (int, float, str, bool)): # Se o objeto for um tipo primitivo
+        return f"O objeto {obj} é um tipo primitivo e é passado por valor." # Mensagem
+    else: # Senão
+        return f"O objeto {obj} é um objeto e é passado por referência." # Mensagem
+
+class Objeto: # Classe
+    def __init__(self): # Método construtor
+        pass
+obj = Objeto() # Objeto
+valor = 3 # Variável
+
+# Exemplos de uso
+print(verificar_tipo(10))       # int
+print(verificar_tipo(3.14))     # float
+print(verificar_tipo("Ola"))  # str
+print(verificar_tipo(True))     # bool
+print(verificar_tipo([1, 2, 3])) # list (não primitivo)
+print(verificar_tipo(obj))      # Objeto (não primitivo)
+print(verificar_tipo(valor))    # int (primitivo)
+print('-'*20)
+
