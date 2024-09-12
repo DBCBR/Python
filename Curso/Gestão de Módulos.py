@@ -116,5 +116,3 @@ print('-'*20)
 # result = subprocess.run(['python3', 'teste_programa.py', 10, 20], capture_output=True, text=True)
 # print(result.stdout) # Exibe a saída do script teste_programa.
 print('-'*20)
-
-sys.argv #
