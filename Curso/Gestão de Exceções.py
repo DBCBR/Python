@@ -163,28 +163,71 @@ print('-'*20)
 # print('-'*20)
 
 4
-class Carácter:
-    def __init__(self, carácter):
-        self.__carácter = ''
-        self.carácter = carácter
+class Carácter: #definindo classe Carácter
+    def __init__(self, carácter): #definindo método __init__
+        self.__carácter = '' #atribuindo valor vazio a __carácter
+        self.carácter = carácter #atribuindo valor de carácter a __carácter 
     
-    @property
-    def carácter(self):
-        return self.__carácter
+    @property #propriedade de carácter
+    def carácter(self): #definindo método carácter
+        return self.__carácter #retorna __carácter
     
-    @carácter.setter
-    def carácter(self, value):
-        if len (value) > 1:
-            raise Exception("O Carácter deve ter no máximo tamanho 1")
+    @carácter.setter #setter de carácter
+    def carácter(self, value): #definindo método carácter
+        if len (value) > 1: #se o tamanho de value for maior que 1
+            raise Exception("O Carácter deve ter no máximo tamanho 1") #raise Exception("O Carácter deve ter no máximo tamanho 1")
         
-        self.__carácter = value
+        self.__carácter = value #atribui value a __carácter
 
-letra = Carácter("a")
-print(letra.carácter)
+letra = Carácter("a") #letra = Carácter("a")
+print(letra.carácter) #print letra.carácter
 
-try:
-    letra.carácter = "ab"
-except Exception as erro:
-    print(str(erro))
+try: #try 
+    letra.carácter = "ab" #letra.carácter = "ab"
+except Exception as erro: #except Exception as erro
+    print(str(erro)) #print erro
 
-print(letra.carácter)
+print(letra.carácter) #print letra.carácter
+print('-'*20)
+
+#Logs 
+#O módulo logging é utilizado para gerar logs de execução de um programa.
+#O método basicConfig é utilizado para configurar o log.
+#O método getLogger é utilizado para recuperar o logger.
+#O método debug é utilizado para registrar mensagens de debug.
+#O método info é utilizado para registrar mensagens informativas.
+#O método warning é utilizado para registrar mensagens de aviso.
+#O método error é utilizado para registrar mensagens de erro.
+#O método critical é utilizado para registrar mensagens críticas.
+#O método exception é utilizado para registrar mensagens de exceção.
+
+def custom_logger(level, message): #definindo função custom_logger
+    import logging #importando módulo logging
+    logger = logging.getLogger(__name__) #atribuindo a logger o getLogger(__name__)
+    if not (len(logger.handlers)): #se o tamanho de logger.handlers for 0
+        logging.basicConfig(level=logging.INFO)#atribui a logging.basicConfig(level=logging.INFO)
+        c_handler = logging.StreamHandler() #atribui a c_handler a logging.StreamHandler()
+        f_handler = logging.FileHandler('file.log') #atribui a f_handler a logging.FileHandler('file.log')
+        format = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s') #atribui a format a logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
+        c_handler.setFormatter(format) #atribui a c_handler.setFormatter(format)
+        f_handler.setFormatter(format) #atribui a f_handler.setFormatter(format)
+        logger.addHandler(c_handler) #adiciona c_handler a logger
+        logger.addHandler(f_handler) #adiciona f_handler a logger
+        
+    if level == 'debug': #se level for debug
+        logger.debug(message)
+    elif level == 'info': #se level for info
+        logger.info(message)
+    elif level == 'warning': #se level for warning
+        logger.warning(message)
+    elif level == 'error': #se level for error
+        logger.error(message)
+    elif level == 'critical': #se level for critical
+        logger.critical(message)
+    elif level == 'exception': #se level for exception
+        logger.exception(message)
+    else:
+        logger.info(message)
+        
+custom_logger("error", "Parâmetro errado!")
+
