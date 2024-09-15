@@ -94,11 +94,64 @@ try:
 except Exception as erro: #se ocorrer um erro
     print("Ocorreu um erro:", str(erro)) #imprimir que ocorreu um erro
     
-import os #importar o módulo os
-os.mkdir("pasta") #criar uma pasta chamada pasta
+# import os #importar o módulo os
+# os.mkdir("pasta") #criar uma pasta chamada pasta
 
-import os #importar o módulo os
-os.rmdir("pasta") #remover a pasta pasta com o nome pasta, a pasta deve estar vazia.
+# import os #importar o módulo os
+# os.rmdir("pasta") #remover a pasta pasta com o nome pasta, a pasta deve estar vazia.
 
-import os #importar o módulo os
-os.mkdir("/pasta") #criar uma pasta chamada pasta
+# # import os #importar o módulo os
+# # os.mkdir("C:/Users/dbcbr/Documents/GitHub/Python/Curso/pasta") #criar uma pasta chamada pasta
+
+# # import os #importar o módulo os
+# # os.mkdir("C:/Users/dbcbr/Documents/GitHub/Python/Curso/pasta/pasta") #criar uma pasta chamada pasta
+
+
+# import os #importar o módulo os
+# os.rmdir("C:/Users/dbcbr/Documents/GitHub/Python/Curso/pasta") #criar uma pasta chamada pasta
+
+# import os #importar o módulo os
+# for i in range(10): #para cada i no intervalo de 0 a 9
+#     nome_pasta = 'pasta' + str(i) #nome da pasta
+#     try:
+#        os.mkdir(nome_pasta) #criar a pasta
+#     except:
+#          pass
+    
+#     try:
+#         open(nome_pasta + '/arquivo.txt', 'wt').close() #criar o arquivo na pasta e fechar
+#     except:
+#          pass
+    
+# import os #importar o módulo os
+# for i in range(0,10): #para cada i no intervalo de 0 a 9
+#     nome_pasta = 'pasta' + str(i) #nome da pasta
+#     try:
+#         os.remove(nome_pasta + '/arquivo.txt') #remover o arquivo na pasta
+#     except:
+#         pass
+    
+#     try:
+#         os.rmdir(nome_pasta) #remover a pasta
+#     except:
+#         print('A pasta não existe!')
+
+# import shutil #importar o módulo shutil
+# for i in range(0,10):
+#     nome_pasta = 'pasta' + str(i)
+#     try:
+#         shutil.rmtree(nome_pasta) #remover a pasta
+#     except:
+#         print('A pasta não existe!') #imprimir que a pasta não existe
+
+# import os #importar o módulo os
+# files = os.listdir() #listar os arquivos
+# print(files) #imprimir os arquivos
+
+#Arquivos CSV
+#Um arquivo CSV (Comma Separated Values) é um arquivo que armazena dados em formato de tabela.
+#Cada linha do arquivo é uma linha da tabela e as colunas são separadas por vírgulas.
+#Leitura de arquivos CSV
+#Para ler um arquivo CSV, você deve usar o módulo CSV.
+#O módulo CSV fornece funções para trabalhar com arquivos CSV.
+
