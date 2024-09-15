@@ -242,45 +242,96 @@ print('-'*20)
 #Atividade
 
 1
-meses = ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho', 'Julho', 'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Dezembro']
-iterador = iter(meses)
-for _ in range(12):
-    print(next(iterador))
-
+def meses():
+    meses = ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho', 'Julho', 'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Dezembro']
+    for i in meses:
+        yield i
+for i in meses():
+    print(i)
+    
 print('-'*20)
 
 2
-lista = [1,2,3,4,5]
+
 def mult_2():
     for i in lista:
         yield i*2
+
+lista = [1,2,3,4,5]
+
 for i in mult_2():
     print(i)
     
 print('-'*20)
 
 3
-class Tabuada:
-    def __init__(self, número):
-        self.número = número
+# class Tabuada:  #classe Tab
+#     def __init__(self, número): #define __init__ com self e número
+#         self.número = número #atribui número a self.número
 
+#     def __iter__(self): #define __iter__ com self
+#         self.i = 1 #atribui 1 a self.i
+#         return self #retorna o próprio objeto
+
+#     def __next__(self): #define __next__ com self
+#         if self.i <= 10: #se self.i for menor ou igual a 10
+#             resultado = self.número * self.i #atribui o resultado da multiplicação de self.número por self.i a resultado
+#             operacao = f"{self.i} * {self.número} = {resultado}" #atribui a operacao a string com a operação
+#             self.i += 1 #incrementa self.i
+#             return operacao #retorna a variável operacao
+#         else:
+#             raise StopIteration #interrompe a iteração
+
+# número = int(input("Digite um número inteiro para saber a Tabuada: ")) #solicita um número inteiro
+
+# tabuada = Tabuada(número) #Instancia da classe Tabuada
+
+# for item in tabuada: #percorre tabuada
+#     print(item) #imprime item
+# print('-'*20)
+
+4
+class Fatorial():
+    def __init__(self, x, y):
+        self.x = x
+        self.y = y
+        
     def __iter__(self):
-        self.i = 1
+        self.atual = self.x
         return self
-
-    def __next__(self):
-        if self.i <= 10:
-            resultado = self.número * self.i
-            operacao = f"{self.i} * {self.número} = {resultado}"
-            self.i += 1
-            return operacao
-        else:
-            raise StopIteration
-
-número = int(input("Digite um número inteiro para saber a Tabuada: \n"))
-
-tabuada = Tabuada(número)
-
-for item in tabuada:
-    print(item)
     
+    @staticmethod
+    def calcula_fatorial(num):
+        result = 1
+        for i in range(1, num+1):
+            result *= i
+        return result  
+    
+    def __next__(self):
+       if (self.atual == self.y+1):
+           raise StopIteration
+       result = Fatorial.calcula_fatorial(self.atual)
+       self.atual += 1
+       return result
+    
+for i in Fatorial(1, 10):
+    print(i)
+print('-'*20)
+
+5
+def meses_enum():
+    meses = ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho', 'Julho', 'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Dezembro']
+    for i in enumerate(meses):
+        yield i
+        
+for índice, mes in meses_enum():
+    print(índice+1, mes)
+print('-'*20)
+
+6
+def frase(lista):
+    return '. '.join(lista) + '.'
+
+textos = ['Olá', 'Mundo', 'Python']
+print(frase(textos))
+print('-'*20)
