@@ -72,6 +72,7 @@ if arquivo_existe: #se o arquivo existe
     print("O arquivo existe!") #imprimir que o arquivo existe
 else:
     print("O arquivo não existe!")
+print('-'*20)
     
 import os #importar o módulo os
 os.remove("teste.txt") #remover o arquivo teste.txt
@@ -80,3 +81,24 @@ os.remove("nomes.txt") #remover o arquivo nomes.txt
 os.remove("nomes2.txt") #remover o arquivo nomes2.txt
 os.remove("números.txt") #remover o arquivo números.txt
 os.remove("teste_with.txt") #remover o arquivo teste_with.txt
+
+file = open('teste', 'w')
+try:
+    file.write('Olá, estou escrevendo no arquivo!\n')
+finally:
+    file.close()
+
+import os #importar o módulo os
+try:
+    os.remove("eerree.txt") #remover o arquivo eerree.txt
+except Exception as erro: #se ocorrer um erro
+    print("Ocorreu um erro:", str(erro)) #imprimir que ocorreu um erro
+    
+import os #importar o módulo os
+os.mkdir("pasta") #criar uma pasta chamada pasta
+
+import os #importar o módulo os
+os.rmdir("pasta") #remover a pasta pasta com o nome pasta, a pasta deve estar vazia.
+
+import os #importar o módulo os
+os.mkdir("/pasta") #criar uma pasta chamada pasta
