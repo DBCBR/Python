@@ -1,0 +1,22 @@
+{
+    "David": {
+        "CPF": "123.456.789-00",
+        "Sexo": "Masculino",
+        "Idade": 37,
+        "Profissão": "Programador",
+        "Filhos": [
+            "Yasmin",
+            "Aurora"
+        ]
+    },
+    "Paula": {
+        "CPF": "987.654.321-00",
+        "Sexo": "Feminino",
+        "Idade": 35,
+        "Profissão": "Enfermeira",
+        "Filhos": [
+            "Yasmin",
+            "Aurora"
+        ]
+    }
+}
