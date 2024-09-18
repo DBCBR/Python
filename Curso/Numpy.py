@@ -260,3 +260,355 @@ for x in np.nditer(array, order='F'): #Iterando um array de duas dimensões
     print(x) #Imprimindo o elemento do array
 print('-'*20)
 
+#Inserir e remover elementos
+#Para inserir e remover elementos de um array, basta utilizar as funções insert() e delete().
+#A função insert() recebe três parâmetros: o array, o índice e o valor.
+#A função delete() recebe dois parâmetros: o array e o índice.
+
+import numpy as np #Importando a biblioteca Numpy
+array = np.array([[1,2,3],[4,5,6],[7,8,9]]) #Criando um array
+print(array) #Imprimindo o array
+array[0] = [1,2,4] #Inserindo um elemento no array
+array[1,1:3] = [0,0] #Inserindo dois elementos no array
+array[0,0] = 10 #Inserindo um elemento no array
+print(array) #Imprimindo o array
+print('-'*20)
+
+import numpy as np #Importando a biblioteca Numpy
+array = np.array([[1,2,3],[4,5,6],[7,8,9]]) #Criando um array
+print(array) #Imprimindo o array
+array[:,2] = [0,0,0] #Inserindo um elemento no array
+print(array) #Imprimindo o array
+print('-'*20)
+
+array = np.array([1,2,3,4])
+array = np.append(array, [5,6,7,8]) #Inserindo elementos no array
+print(array) #Imprimindo o array
+print('-'*20)
+
+array = np.array([[1,2,3],[4,5,6],[7,8,9]])
+print(array, end='\n\n') #Imprimindo o array 
+array2 = np.append(array, [9,10,11]) #Inserindo elementos no array
+print(array2) #Imprimindo o array
+print('-'*20)
+
+array = np.array([[1,2,3],[4,5,6],[7,8,9]])
+array1 = np.append(array, [[10,11,12]], axis=0) #Inserindo elementos no array por linha
+array2 = np.append(array, [[10],[11],[12]], axis=1) #Inserindo elementos no array por coluna
+print(array, end='\n\n') #Imprimindo o array
+print(array1, end='\n\n') #Imprimindo o array
+print(array2) #Imprimindo o array
+print('-'*20)
+
+array = np.array([1,2,3])
+array = np.insert(array, 1,10) #Inserindo um elemento no array
+print(array) #Imprimindo o array
+print('-'*20)
+
+array = np.array([[1,2,3],[7,8,9],[10,11,12]])
+array1 = np.insert(array, 1, [4,5,6], axis=0)
+print(array1) #Imprimindo o array
+print('-'*20)
+
+array = np.array([[1,2,3],[4,5,6],[7,8,9]])
+array1 = np.delete(array, 1, axis=0) #Inserindo elementos no array por linha
+array2 = np.delete(array, 1, axis=1) #Inserindo elementos no array por coluna
+print(array1, end='\n\n') #Imprimindo o array
+print(array2, end='\n\n') #Imprimindo o array
+
+#Copiando Arrays
+#Para copiar um array, basta utilizar a função copy().
+#A função copy() recebe um array como parâmetro.
+
+array = np.array([1,2,3]) #Criando um array
+copy_array = array #Copiando um array
+copy_array[0] = 0 #Alterando o valor do array copiado por referência
+print(array) #Imprimindo o array
+print('-'*20)
+
+array = np.array([1,2,3]) #Criando um array
+copy_array = array.copy() #Copiando um array
+copy_array[0] = 0 #Alterando o valor do array copiado por valor
+print(array) #Imprimindo o array
+print('-'*20)   
+
+#Alterando o Formato do Array
+#Para alterar o formato de um array, basta utilizar a função reshape().
+#A função reshape() recebe dois parâmetros: o array e o novo formato.
+
+array = np.array([[1,2,3],[4,5,6],[7,8,9]]) #Criando um array
+print(array) #Imprimindo o array
+array = array.reshape(9) #Alterando o formato do array para uma dimensão
+print(array) #Imprimindo o array
+print('-'*20)
+
+array = np.array([i for i in range(0, 27)]) #Criando um array
+print(array, end='\n\n') #Imprimindo o array
+array = array.reshape(3,3,3) #Alterando o formato do array para três dimensões
+print(array, end='\n\n') #Imprimindo o array
+array = array.reshape(3,9) #Alterando o formato do array para duas dimensões
+print(array, end='\n\n') #Imprimindo o array
+array = array.reshape(9,3) #Alterando o formato do array para duas dimensões
+print(array) #Imprimindo o array
+print('-'*20)
+
+array = np.array([[1,2,3],[4,5,6],[7,8,9]]) #Criando um array
+print(array, end='\n\n') #Imprimindo o array
+array = array.flatten() #Alterando o formato do array para uma dimensão
+print(array) #Imprimindo o array
+print('-'*20)
+
+#Operações com Arrays
+
+array1 = np.array([1,2,3,]) #Criando um array
+array2 = np.array([4,5,6]) #Criando um array
+
+print(array1 + array2) #Somando os arrays
+print(array1 - array2) #Subtraindo os arrays
+print(array1 * array2) #Multiplicando os arrays
+print(array1 / array2) #Dividindo os arrays
+print(array1 ** array2) #Elevando os arrays
+print(array1 // array2) #Resto da divisão dos arrays
+print('-'*20)
+
+array1 = np.array([1,2,3]) #Criando um array
+array2 = np.array([[4,5,6],[1,2,3]]) #Criando um array
+array3 = np.array([[1,2,3],[4,5,6],[7,8,9]]) #Criando um array
+print(array1 + array2) #Somando os arrays
+print(array1 + array3) #Somando os arrays
+print('-'*20)
+
+array1 = np.array([1,2,3]) #Criando um array
+print(array1 + 2) #Somando um valor ao array
+print(array1 - 2) #Subtraindo um valor do array
+print(array1 * 2) #Multiplicando um valor pelo array
+print(array1 / 2) #Dividindo um valor pelo array
+print(array1 ** 2) #Elevando um valor pelo array
+print(array1 // 2) #Resto da divisão do array
+print('-'*20)
+
+array1 = np.array([10,20,30,5]) #Criando um array
+array2 = np.array([20,40,10,5]) #Criando um array
+print(array1 > array2, end='\n\n') #Comparando os arrays
+print(array1 < array2, end='\n\n') #Comparando os arrays
+print(array1 == array2, end='\n\n') #Comparando os arrays
+print('-'*20)
+
+array1 = np.array([10,20,30,5]) #Criando um array
+array2 = np.array([20,40,10,5]) #Criando um array
+array3 = np.array([10,20,30,5]) #Criando um array
+print(np.array_equal(array1, array2)) #Comparando os arrays
+print(np.array_equal(array1, array3)) #Comparando os arrays
+print('-'*20)
+
+#Combinação de Arrays
+
+array1 = np.array([1,2,3]) #Criando um array
+array2 = np.array([4,5,6]) #Criando um array
+array = np.concatenate((array1, array2)) #Concatenando os arrays em uma dimensão
+print(array) #Imprimindo o array
+print('-'*20)
+
+array1 = np.array([[1,2,3],[4,5,6]]) #Criando um array
+array2 = np.array([[7,8,9],[10,11,12]]) #Criando um array
+array = np.concatenate((array1, array2), axis=0) #Concatenando os arrays em duas dimensões por linha
+print(array) #Imprimindo o array
+array = np.concatenate((array1, array2), axis=1) #Concatenando os arrays em duas dimensões por coluna
+print(array) #Imprimindo o array
+print('-'*20)
+
+array2 = np.array([1,2,3]) #Criando um array
+array3 = np.array([4,5,6]) #Criando um array
+
+array = numpy.vstack((array2, array3)) #Empilhando os arrays
+array1 = numpy.hstack((array2, array3)) #Empilhando os arrays
+
+print(array) #Imprimindo o array
+print(array1) #Imprimindo o array
+print('-'*20)
+
+array2 = np.array([[1,2,3],[4,5,6]]) #Criando um array
+array3 = np.array([[7,8,9],[10,11,12]]) #Criando um array
+array = numpy.vstack((array2, array3)) #Empilhando os arrays
+array1 = numpy.hstack((array2, array3)) #Empilhando os arrays
+print(array) #Imprimindo o array
+print(array1) #Imprimindo o array
+print('-'*20)
+
+#Dividindo Arrays
+
+array = np.array([1,2,3,4,5,6]) #Criando um array
+array1, array2 = np.split(array, 2) #Dividindo o array em dois
+print(array1) #Imprimindo o array
+print(array2) #Imprimindo o array
+print('-'*20)
+
+array = np.array([[1,2,3,4],[5,6,7,8]]) #Criando um array
+print(np.split(array, 2)) #Dividindo o array em dois
+print('-'*20)
+
+array = np.array([1,2,3,4,5,6]) #Criando um array
+array1 = np.array_split(array, 2) #Dividindo o array em dois
+array2 = np.array_split(array, 3) #Dividindo o array em três
+array3 = np.array_split(array, 4) #Dividindo o array em quatro
+print(array1) #Imprimindo o array
+print(array2) #Imprimindo o array
+print(array3) #Imprimindo o array
+print('-'*20)
+
+array = np.array([[1,2,3],[4,5,6]]) #Criando um array
+array1 = np.array_split(array, 2) #Dividindo o array em dois
+array2 = np.array_split(array, 3) #Dividindo o array em três
+array3 = np.array_split(array, 4) #Dividindo o array em quatro
+print(array1) #Imprimindo o array
+print(array2) #Imprimindo o array
+print(array3) #Imprimindo o array
+print('-'*20)
+
+array = np.array([[1,2,3],[4,5,6],[7,8,9]]) #Criando um array
+array1 = np.hsplit(array, 3) #Dividindo o array em três
+print(array1) #Imprimindo o array
+print('-'*20)
+
+#Filtrando Elementos
+#Para filtrar elementos de um array, basta utilizar a função where().
+#A função where() recebe um array como parâmetro.
+
+array = np.array([1,3,4,2,7,4])
+array_find = np.where((array == 4) | (array == 7)) #Filtrando elementos do array que são iguais a 4 ou 7
+print(array_find) #Imprimindo o array
+print('-'*20)
+
+array = np.array([1,-1,-3,0,6,3,-78])
+array_find = np.where((array > 0) & (array < 10)) #Filtrando elementos do array que são maiores que 0 e menores que 10
+print(array_find) #Imprimindo o array
+print('-'*20)
+
+array = np.array([1,3,4,2,7,4])
+array_find = np.any(array == 1) #Filtrando elementos do array que são iguais a 1
+print(array_find) #Imprimindo o array
+print('-'*20)
+
+array = np.array([1,3,4,2,7,4])
+array_find = np.any((array>0)&(array<10)) #Filtrando elementos do array que são maiores que 0 e menores que 10
+print(array_find) #Imprimindo o array
+print('-'*20)
+
+array = np.array([1,3,4,2,7,4])
+array_find = np.all(array > 0) #Filtrando elementos do array que são iguais a 1
+print(array_find) #Imprimindo o array
+print('-'*20)
+
+array = np.array([1,0,1,1,1,0,0]) #Criando um array
+filter = array == 1 #Filtrando elementos do array que são iguais a 1
+filter_array = array[filter] #Filtrando elementos do array que são iguais a 1
+print(filter_array) #Imprimindo o array
+print('-'*20)
+
+array = np.array([1,0,1,1,1,0,2]) #Criando um array
+filter = (array == 1) | (array == 2) #Filtrando elementos do array que são iguais a 1 ou 2
+filter_array = array[filter] #Filtrando elementos do array que são iguais a 1 ou 2
+print(filter_array) #Imprimindo o array
+print('-'*20)
+
+array = np.array([1,0,1,1,1,0,2]) #Criando um array
+filtered_array = np.array([i for i in array if i == 0]) #Filtrando elementos do array que são iguais a 0
+print(filtered_array) #Imprimindo o array
+print('-'*20)
+
+#Ordenando Arrays
+#Para ordenar um array, basta utilizar a função sort().
+#A função sort() recebe um array como parâmetro.
+
+array = np.array([4,1,3,2]) #Criando um array
+print(np.sort(array, kind='quicksort')) #Ordenando o array
+print('-'*20)
+
+array = np.array([[38,2,1],[5,5,4]]) #Criando um array
+print(np.sort(array, axis=0)) #Ordenando o array por linha
+print(np.sort(array, axis=1)) #Ordenando o array por coluna
+print('-'*20)
+
+#Operações Aritméticas
+#Numpy possui várias funções que permitem realizar operações aritméticas com arrays.
+
+array = np.array([1,2,3,4,5,6,18])
+array2 = np.array([1,2,3,4,5,6,3])
+
+array1 = numpy.add(array, array2) #Somando os arrays
+array2 = numpy.subtract(array, array2) #Subtraindo os arrays
+array3 = numpy.multiply(array, array2) #Multiplicando os arrays
+array4 = numpy.divide(array, array2) #Dividindo os arrays
+
+print(array1) #Imprimindo o array
+print(array2) #Imprimindo o array
+print(array3) #Imprimindo o array
+print(array4) #Imprimindo o array
+print('-'*20)
+
+arr1 = numpy.array([[1,2,3],[4,5,6],[7,8,9]])
+arr2 = numpy.array([[1,2,3],[4,5,6],[7,8,9]])
+array = numpy.add(arr1, arr2) #Somando os arrays
+print(array) #Imprimindo o array
+print('-'*20)
+
+arr1 = np.array([1,2,3,4,5,6,18])
+arr2 = np.array([1,2,3,4,5,6,3])
+array = numpy.divide(arr1, arr2) #Dividindo os arrays
+array2 = numpy.floor_divide(arr1, arr2) #Dividindo os arrays
+print(array) #Imprimindo o array
+print(array2) #Imprimindo o array
+print('-'*20)
+
+arr1 = np.array([1,2])
+arr2 = np.array([2,4])
+array1 = numpy.power(arr1, arr2) #Elevando os arrays
+print(array1) #Imprimindo o array
+print('-'*20)
+
+arr1 = np.array([2,2,100])
+arr2 = np.array([2,3,31])
+
+array1 = np.divmod(arr1, arr2) #Dividindo os arrays
+print(array1) #Imprimindo o array
+print('-'*20)
+
+arr1 = np.array([4,25,100])
+array1 = np.sqrt(arr1) #Calculando a raiz quadrada dos arrays
+print(array1) #Imprimindo o array 
+print('-'*20)
+
+arr1 = np.array([3.14159, 2.71])
+array = np.around(arr1,2) #Arredondando os arrays
+print(array) #Imprimindo o array
+print('-'*20)
+
+arr1 =np.array([3.14159, 2.71])
+array = np.floor(arr1) #Arredondando para baixo os arrays
+print(array) #Imprimindo o array
+print('-'*20)
+
+arr1 = np.array([3.14159, 2.71])
+array = np.ceil(arr1) #Arredondando para cima os arrays
+print(array) #Imprimindo o array
+print('-'*20)
+
+#Acumuladores
+#Numpy possui várias funções que permitem realizar operações aritméticas com arrays.
+
+array = np.array([[1,2,3],[4,5,6]])
+array_sum = np.sum(array) #Somando os elementos do array
+print(array_sum) #Imprimindo o array
+
+array = np.array([[1,2,3],[4,5,6]])
+array_sum = np.cumsum(array) #Somando os elementos do array acumulativamente
+print(array_sum) #Imprimindo o array
+print('-'*20)
+
+array = np.array([[1,2,3],[4,5,6]])
+array_prod = np.cumprod(array) #Multiplicando os elementos do array acumulativamente
+print(array_prod) #Imprimindo o array
+print('-'*20)
+
+array = np.array([[1,2,3],[4,5,6]])
+array1 = np.cumprod(array, axis=0) #Multiplicando os elementos do array acumulativamente por linha
