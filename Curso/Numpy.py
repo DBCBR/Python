@@ -611,4 +611,209 @@ print(array_prod) #Imprimindo o array
 print('-'*20)
 
 array = np.array([[1,2,3],[4,5,6]])
-array1 = np.cumprod(array, axis=0) #Multiplicando os elementos do array acumulativamente por linha
+array1 = np.cumprod(array, axis=0) #Multiplicando os elementos do array acumulativamente
+array2 = np.cumprod(array, axis=1) #Multiplicando os elementos do array acumulativamente
+print(array1)
+print(array2)
+print('-'*20)
+
+array = np.array([1,-2,-3,-4,5,6])
+print(np.amin(array)) #Encontrando o menor valor do array
+print(np.amax(array)) #Encontrando o maior valor do array
+print(np.abs(array)) #Encontrando o valor absoluto do array
+print('-'*20)
+
+array = np.array([[1,2,3],[4,5,6]])
+print(array)
+print(np.amin(array)) #Encontrando o menor valor do array
+print(np.amin(array, axis = 1)) #Encontrando o menor valor do array por linha
+print(np.amin(array, axis = 0)) #Encontrando o maior valor do array por coluna
+print('-'*20)
+
+#União, Interseção e Remoção de Duplicatas
+#Numpy possui várias funções que permitem realizar operações com arrays.
+#Para unir dois arrays, basta utilizar a função union1d().
+#Para encontrar a interseção de dois arrays, basta utilizar a função intersect1d().
+#Para remover duplicatas de um array, basta utilizar a função unique().
+#A função union1d() recebe dois arrays como parâmetros.
+#A função intersect1d() recebe dois arrays como parâmetros.
+#A função unique() recebe um array como parâmetro.
+
+arr1 = np.array([1,2,3,4]) #Criando um array
+arr2 = np.array([3,4,5,6,7]) #Criando um array
+newarr = np.union1d(arr1, arr2) #Unindo os arrays
+print(newarr) #Imprimindo o array
+print('-'*20)
+
+arr1 = np.array([1,2,3,4]) #Criando um array
+arr2 = np.array([3,4,5,6,7]) #Criando um array
+newarr = np.intersect1d(arr1, arr2) #Encontrando a interseção dos arrays
+print(newarr) #Imprimindo o array
+print('-'*20)
+
+arr1 = np.array([1,3,3,2,3,4,4,4]) #Criando um array
+arr2 = np.array([3,7,7,4,5,6,6,6,7]) #Criando um array
+newarr = np.unique(arr1) #Encontrando a interseção dos arrays
+newarr2 = np.unique(arr2) #Encontrando a interseção dos arrays
+print(newarr) #Imprimindo o array
+print(newarr2) #Imprimindo o array
+print('-'*20)
+
+#Atividades
+
+1
+array = np.arange(10) #Criando um array de uma dimensão com valores de 0 a 9
+print(array) #Imprimindo o array
+print('-'*20)
+
+2
+array = np.array([i for i in range(0, 10)]) #Criando um array com List Comprehension de uma dimensão com valores de 0 a 9
+print(array) #Imprimindo o array
+print('-'*20)
+
+3
+array = np.arange(9).reshape(3,3) #Criando um array de duas dimensões com valores de 0 a 8
+print(array) #Imprimindo o array
+print('-'*20)
+
+4
+array = np.arange(0,9, dtype='f4') #Criando um array de uma dimensão com valores de 0 a 8 de ponto flutuante de 32 bits
+print(array) #Imprimindo o array
+print('-'*20)
+ 
+array = np.float32([0,1,2,3,4,5,6,7,8]) #Criando um array de ponto flutuante de 32 bits
+print(array) #Imprimindo o array
+print(array.dtype) #Imprimindo o tipo de dados do array
+print('-'*20)
+
+5
+array = np.arange(1,21, dtype=np.int8) #Criando um array de uma dimensão com valores de 1 a 20 de 8 bits
+print(array) #Imprimindo o array
+print(array.nbytes) #Imprimindo o tamanho total do array 
+print('-'*20)
+
+6
+array = np.random.randint(1,5, (2,2)) #Criando um array de duas dimensões com valores aleatórios de 1 a 4 
+print(array) #Imprimindo o array
+print(array [0,0]) #Acessando o primeiro elemento do array
+print(array [1,1]) #Acessando o quarto elemento do array
+print('-'*20)
+
+7
+array = np.random.randint(5,21, (3,3)) #Criando um array de duas dimensões com valores aleatórios de 5 a 20
+print(array) #Imprimindo o array
+print(array[:, 0]) #Acessando a primeira coluna do array
+print(array[2,:]) #Acessando a terceira linha do array
+print('-'*20)
+
+8
+array = np.random.randint(1,50, (3,3)) #Criando um array de duas dimensões com valores aleatórios de 1 a 49
+print(array) #Imprimindo o array
+for linha in array:
+    print(np.sum(linha)) #Somando os elementos de cada linha do array
+
+print('-'*20)
+
+9
+array = np.array([i for i in range(0,101)if i % 2 == 0]) #Criando um array de uma dimensão com valores pares de 0 a 100
+print(array) #Imprimindo o array
+print('-'*20)
+
+10
+array = np.random.randint(1,50, (4,9))#Criando um array de duas dimensões com valores aleatórios de 1 a 49
+print(array) #Imprimindo o array
+array = array.reshape(36)
+print(array) #Imprimindo o array
+array = array.reshape(6,6)
+print(array) #Imprimindo o array
+print('-'*20)
+
+11
+def concatenar_array(array1, array2, array3):
+    if array1.shape != array2.shape or array1.shape != array3.shape:
+        raise Exception('Os arrays precisam ter o mesmo formato')
+    
+    return np.concatenate((array1, array2, array3))
+
+array1 = np.array([1,2,3]) #Criando um array
+array2 = np.array([4,5,6]) #Criando um array
+array3 = np.array([7,8,9]) #Criando um array
+array = concatenar_array(array1, array2, array3) #Concatenando os arrays
+print(array) #Imprimindo o array
+print('-'*20)
+
+12
+def divide_abs(arr,n):
+    arr = np.array_split(arr,n)
+    arr = np.abs(arr)
+    return arr
+
+array1 = np.array([1,2,-3,4,-5,6,-7,8,9]) #Criando um array
+print(divide_abs(array1, 3)) #Dividindo o array em três partes e retornando o valor absoluto
+print('-'*20)
+
+13
+def conta_positivos(arr):
+    return len(np.where(arr > 0)[0])
+
+array1 = np.array([1,2,-3,4,-5,6,-7,8,9]) #Criando um array
+print(conta_positivos(array1)) #Contando os números positivos do array
+print('-'*20)
+
+14
+def divisiveis_por_3(arr):
+    return np.where(arr % 3 == 0)[0]
+
+array1 = np.array([1,2,3,4,5,6,7,8,9]) #Criando um array
+print(divisiveis_por_3(array1)) #Contando os números divisíveis por 3 do array
+print('-'*20)
+
+15
+def possou_negativos(arr):
+    return np.any(arr < 0)
+
+array1 = np.array([1,-2,3,-4,5,-6,-7,8,-9]) #Criando um array
+print(possou_negativos(array1)) #Verificando se o array possui números negativos
+print('-'*20)
+
+16
+def remove_negativo(arr):
+    filter = arr >= 0
+    return arr[filter]
+
+array = np.array([1,-2,3,-4,5,-6,-7,8,-9]) #Criando um array
+print(remove_negativo(array)) #Removendo os números negativos do array
+print('-'*20)
+
+17
+def remove_valores(arr, inicial, final):
+    filter = (arr >= inicial) & (arr <= final)
+    return arr[filter]
+
+array = np.array([i for i in range(-10, 10)]) #Criando um array com List Comprehension
+print(array) #Imprimindo o array
+print(remove_valores(array, -5, 5)) #Removendo os valores do array
+print('-'*20)
+
+18
+def ordena_remove_impares(arr):
+    arr = np.sort(arr)
+    filter = arr % 2 == 0
+    return arr[filter]
+
+array = np.random.randint(0,10,(100)) #Criando um array com List Comprehension
+print(array) #Imprimindo o array
+print(ordena_remove_impares(array)) #Ordenando e removendo os valores ímpares do array
+print('-'*20)
+
+19
+def ordena_remove_impares_duplicados(arr):
+    arr = np.sort(arr)
+    filter = (arr % 2 == 0)
+    arr = arr[filter]
+    return np.unique(arr)
+
+array = np.random.randint(0,10,(100)) #Criando um array com List Comprehension
+print(array) #Imprimindo o array
+print(ordena_remove_impares_duplicados(array)) #Ordenando, removendo os valores ímpares e duplicados do array
+print('-'*20)
