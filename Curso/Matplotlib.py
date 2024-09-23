@@ -141,15 +141,284 @@
 # plt.legend(loc = 'best')
 # plt.show()
 
+# import matplotlib.pyplot as plt
+# import numpy as np
+
+# x = np.arange(0,19) #criando um array de 0 a 19
+# y = -x ** 4 #elevando o array ao quadrado
+
+# plt.xlabel("Eixo X") #adicionando o label no eixo x
+# plt.ylabel("Eixo Y") #adicionando o label no eixo y
+# plt.title("Gráfico da Função y = -x ** 4") #adicionando o título do gráfico
+# plt.plot(x, y, c='orange', lw='1.5', marker='o') #plotando o gráfico
+# plt.show() #mostrando o gráfico
+
+#Aprimorando com Linhas e Grades
+
+# import matplotlib.pyplot as plt
+# import numpy as np
+
+# x1 = np.arange(1,100)
+# y1 = x1 ** 2
+
+# plt.plot(x1,y1)
+# plt.grid(
+#     c = 'black', #cor da grade
+#     ls = 'dotted', #estilo da linha
+#     lw = 1.5, #largura da linha
+#     alpha = 0.5 #transparência
+# )
+# plt.show()
+
+# import matplotlib.pyplot as plt
+# import numpy as np
+
+# x1 = np.arange(1,100)
+# y1 = x1 ** 2
+
+# plt.plot(x1,y1, color='r')
+# plt.grid(c='b', ls='dotted', lw=1.5, alpha=0.5)
+# plt.xticks([1,2,4,6,8,10,20,40,60,80,100])
+# plt.show()
+
+# import matplotlib.pyplot as plt
+# import numpy as np
+
+# x1 = np.arange(1,100)
+# y1 = x1 ** 2
+
+# print(plt.style.available)
+# plt.style.use('classic')
+# plt.grid(c='gray')
+# plt.plot(x1,y1)
+# plt.show()
+
+# import matplotlib.pyplot as plt
+# import numpy as np
+
+# x1 = np.arange(0,20,0.5)
+# y1 = x1*2
+
+# x2 = np.arange(0,20,0.5)
+# y2 = np.sin(x2)
+
+# plt.subplot(1,2,1)
+# plt.title("A Primeira Função")
+# plt.plot(x1,y1, c='g', lw='6.5', ls='dashed')
+# plt.subplot(1,2,2)
+# plt.title("A Segunda Função")
+# plt.plot(x2,y2, c='b', lw='3.5', ls='solid')
+# plt.show()
+
+# import matplotlib.pyplot as plt
+# import numpy as np
+
+# x1 = np.arange(0,20,0.5)
+# y1 = np.cos(x1)
+
+# x2 = np.arange(0,20,0.5)
+# y2 = np.cos(x2)*2
+
+# plt.subplot(2,1,1)
+# plt.xlabel('Eixo X')
+# plt.ylabel('Eixo Y')
+# plt.title("A Primeira Função Cosseno")
+# plt.plot(x1,y1, c='g', lw='6.5', ls='dashed', label="y = cos(x)")
+# plt.legend(loc='best')
+# plt.ylim(-3,2)
+# plt.grid()
+# plt.tight_layout()
+
+# plt.subplot(2,1,2)
+# plt.xlabel('Eixo X')
+# plt.ylabel('Eixo Y')
+# plt.title("A Segunda Função Cosseno")
+# plt.plot(x2,y2, c='b', lw='3.5', ls='solid', label="y = cos(x2)*2")
+# plt.legend(loc='best')
+# plt.ylim(-3,2)
+# plt.grid()
+# plt.suptitle("Gráficos de Funções Cosseno")
+# plt.tight_layout()
+# plt.show()
+
+#Gráficos de Barras
+
+#import matplotlib.pyplot as plt
+#import numpy as np
+
+# x = np.array([1,2,3,4,5])
+# y = np.array([2,4,6,8,10])
+
+# plt.bar(x,y, color='r', width=0.3)
+# plt.show()
+
+# import matplotlib.pyplot as plt
+# import numpy as np
+
+# y = np.array([1,2,3])
+# x = np.array(["Um","Dois","Três"])
+
+# plt.barh(x,y, color='r', height=0.3)
+# plt.title("Gráfico de Barras")
+# plt.xlabel("Valores")
+# plt.ylabel("Quantidade")
+# plt.show()
+
+# import matplotlib.pyplot as plt
+# import numpy as np
+
+# valores_esquerda = np.arange(0,6)
+# valores_direita = np.arange(6,0,-1)
+# ys = np.arange(6)
+
+# plt.barh(ys, valores_esquerda, color='y')
+# plt.barh(ys, -valores_direita, color='r')
+
+# plt.legend(['Direita', 'Esquerda'])
+
+# plt.title("Gráfico de Barras Dividido")
+# plt.ylabel("Valores de Y")
+# plt.xlabel("Valores Esquerda X Valores Direita")
+# plt.show()
+
+# import matplotlib.pyplot as plt
+# import numpy as np
+
+# valores_esquerda = np.arange(0,6)
+# valores_direita = np.arange(6,0,-1)
+# xs = np.arange(6)
+
+# plt.bar(xs, valores_esquerda, color='y')
+# plt.bar(xs, -valores_direita, color='r')
+
+# plt.legend(['Direita', 'Esquerda'])
+
+# plt.title("Gráfico de Barras Dividido")
+# plt.ylabel("Valores de Y")
+# plt.xlabel("Valores Esquerda X Valores Direita")
+# plt.show()
+
+#Gráfico Empilhado
+
+# import matplotlib.pyplot as plt
+# import numpy as np
+
+# xs = np.array(['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio'])
+# time1 = np.array([5,10,15,20,25])
+# time2 = np.array([6,8,2,7,9])
+# time3 = np.array([12,10,15,23,21])
+# time4 = np.array([5,24,34,21,51])
+# time5 = np.array([4,21,13,21,14])
+
+# plt.bar(xs,time1, color='r', width=0.5)
+# plt.bar(xs,time2,bottom=time1, color='b', width=0.5)
+# plt.bar(xs,time3,bottom=time2+time1, color='g', width=0.5)
+# plt.bar(xs,time4,bottom=time3+time2+time1, color='y', width=0.5)
+# plt.bar(xs,time5,bottom=time4+time3+time2+time1, color='k', width=0.5)
+
+# plt.title("Rendimento no Esporte")
+# plt.xlabel("Meses")
+# plt.ylabel("Pontuação")
+# plt.legend(['Time 1', 'Time 2', 'Time 3', 'Time 4', 'Time 5'])
+# plt.show()
+
+# import matplotlib.pyplot as plt
+# import numpy as np
+
+# xs = np.array(['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio'])
+# time1 = np.array([5,10,15,20,25])
+# time2 = np.array([6,8,2,7,9])
+# time3 = np.array([12,10,15,23,21])
+# time4 = np.array([5,24,34,21,51])
+# time5 = np.array([4,21,13,21,14])
+
+# plt.barh(xs,time1, color='r')
+# plt.barh(xs,time2,left=time1, color='b')
+# plt.barh(xs,time3,left=time2+time1, color='g')
+# plt.barh(xs,time4,left=time3+time2+time1, color='y')
+# plt.barh(xs,time5,left=time4+time3+time2+time1, color='k')
+
+# plt.title("Rendimento no Esporte")
+# plt.xlabel("Meses")
+# plt.ylabel("Pontuação")
+# plt.legend(['Time 1', 'Time 2', 'Time 3', 'Time 4', 'Time 5'])
+# plt.show()
+
+#Histogramas
+
+# import matplotlib.pyplot as plt
+# import numpy as np
+
+# alturas = np.array([1.53,1.65,1.75,1.86,1.74,1.59,1.87,1.98])
+# plt.hist(alturas, color='r', edgecolor='k', bins=[1.50,1.60,1.70,1.80,1.90,2.00])
+# plt.xlabel("Alturas")
+# plt.ylabel("Frequência")
+# plt.title("Histograma de Alturas")
+# plt.show()
+
+# import matplotlib.pyplot as plt
+# import numpy as np
+
+# alturas = np.array([1.53,1.65,1.75,1.86,1.74,1.59,1.87,1.98])
+# plt.hist(alturas, color='r', edgecolor='k')
+# plt.xlabel("Alturas")
+# plt.ylabel("Frequência")
+# plt.title("Histograma de Alturas")
+# plt.show()
+
+# import matplotlib.pyplot as plt
+# import numpy as np
+
+# alturas_mundiais = np.random.normal(loc=175, scale=11, size=1000)/100
+# alturas_brasileiras = np.random.normal(loc=185, scale=9, size=1000)/100
+
+# plt.hist(alturas_mundiais, color='r', edgecolor='k', bins=30, alpha=0.5)
+# plt.hist(alturas_brasileiras, color='b', edgecolor='k', bins=30, alpha=0.5)
+# plt.legend(['Alturas Mundiais', 'Alturas Brasileiras'])
+# plt.xlabel("Alturas")
+# plt.ylabel("Frequência")
+# plt.title("Histograma de Alturas")
+# plt.show()
+
+#Gráfico de Pizza
+
+# import matplotlib.pyplot as plt
+# import numpy as np
+
+# classes = np.array(['Classe Baixa', 'Classe Média', 'Classe Alta'])
+# dados = np.array([10,30,60])
+# cores = np.array(['r','g','b'])
+# offset = np.array([0.2,0.05,0.05])
+
+# edge_props={'linewidth': 2, #definindo a largura da borda
+#             'edgecolor': 'k', #definindo a cor da borda
+#             'linestyle': 'solid' #definindo o estilo da borda
+# } 
+
+# text_props={
+#     'color': 'k', #cor do texto
+#     'size': 10, #tamanho do texto
+#     'style': 'oblique' #estilo do texto
+# } 
+
+# plt.figure(figsize=(7,7))
+# plt.pie(dados, labels=classes, colors=cores, shadow=True, startangle=90, autopct='%1.1f%%',explode=offset, wedgeprops=edge_props, textprops=text_props)
+# plt.title("Distribuição de Renda das Classes Sociais")
+# plt.legend(classes, loc='best')
+# plt.tight_layout()
+# plt.show()
+
+#Gráfico de Dispersão
+
 import matplotlib.pyplot as plt
 import numpy as np
 
-x = np.arange(0,19) #criando um array de 0 a 19
-y = -x ** 4 #elevando o array ao quadrado
+plt.style.use('bmh')
+x = np.arange(0,10)
+y = np.array([1,4,9,12,4,7,4,9,2,1])
+z = np.array([100,50,150,200,100,120,130,80,90,144])
 
-plt.xlabel("Eixo X") #adicionando o label no eixo x
-plt.ylabel("Eixo Y") #adicionando o label no eixo y
-plt.title("Gráfico da Função y = -x ** 4") #adicionando o título do gráfico
-plt.plot(x, y, c='orange', lw='1.5', marker='o') #plotando o gráfico
-plt.show() #mostrando o gráfico
-+
+cores = np.array(['r','g','b','y','k','c','m','orange','purple','pink'])
+plt.scatter(x,y, c=cores, marker='o', s=z)
+plt.title("Gráfico de Dispersão")
+plt.show()
