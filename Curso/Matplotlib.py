@@ -150,7 +150,7 @@
 # plt.xlabel("Eixo X") #adicionando o label no eixo x
 # plt.ylabel("Eixo Y") #adicionando o label no eixo y
 # plt.title("Gráfico da Função y = -x ** 4") #adicionando o título do gráfico
-# plt.plot(x, y, c='orange', lw='1.5', marker='o') #plotando o gráfico
+# plt.plot(x, y, c='orange', lw='1.5', marker='o') #plotando o gráfico com os valores de x e y e definindo a cor, a largura da linha e o marcador
 # plt.show() #mostrando o gráfico
 
 #Aprimorando com Linhas e Grades
@@ -410,15 +410,119 @@
 
 #Gráfico de Dispersão
 
-import matplotlib.pyplot as plt
-import numpy as np
+# import matplotlib.pyplot as plt
+# import numpy as np
 
-plt.style.use('bmh')
-x = np.arange(0,10)
-y = np.array([1,4,9,12,4,7,4,9,2,1])
-z = np.array([100,50,150,200,100,120,130,80,90,144])
+# plt.style.use('bmh')
+# x = np.arange(0,10)
+# y = np.array([1,4,9,12,4,7,4,9,2,1])
+# z = np.array([100,50,150,200,100,120,130,80,90,144])
 
-cores = np.array(['r','g','b','y','k','c','m','orange','purple','pink'])
-plt.scatter(x,y, c=cores, marker='o', s=z)
-plt.title("Gráfico de Dispersão")
-plt.show()
+# cores = np.array(['r','g','b','y','k','c','m','orange','purple','pink'])
+# plt.scatter(x,y, c=cores, marker='o', s=z)
+# plt.title("Gráfico de Dispersão")
+# plt.show()
+
+#Atividades
+
+1
+# import matplotlib.pyplot as plt
+# import numpy as np
+
+# x = np.arange(0,10)
+# y = 5*x +1
+# plt.xlabel("Eixo X")
+# plt.ylabel("Eixo Y")
+# plt.title("Gráfico de Função")#
+# plt.plot(x, y, c='b', mfc='r', marker='s')
+# plt.show()
+
+2
+# import matplotlib.pyplot as plt
+# import numpy as np
+
+# cotação = np.array([3.15, 3.26, 3.88, 4.30, 5.33, 5.45, 5.39])
+# anos = np.arange([2016,2023])
+# plt.plot(anos, cotação, c='r', marker='o')
+# plt.xlabel("Anos")
+# plt.ylabel("Valor do Real (R$)")
+# plt.title("Variação do Real x Dólar")
+# plt.plot(x,y, c='b', mfc='b', marker='o')
+# plt.show()
+
+3
+# import matplotlib.pyplot as plt
+# import numpy as np
+
+# cotação = np.array([3.15, 3.26, 3.88, 4.30, 5.33, 5.45, 5.39])
+# anos = np.arange([2016,2023])
+# plt.plot(anos, cotação, c='r', marker='o')
+# plt.xlabel("Anos")
+# plt.ylabel("Valor do Real (R$)")
+# plt.title("Variação do Real x Dólar")
+# plt.bar(x,y, color='b')
+# plt.show()
+
+4
+# import matplotlib.pyplot as plt
+# import numpy as np
+
+
+# cotação = np.array([3.15, 3.26, 3.88, 4.30, 5.33, 5.45, 5.39])
+# anos = np.array([2016, 2017, 2018, 2019, 2020, 2021, 2022])
+# pib = np.array([8710.50, 9928.50, 9151.58, 8897.29, 6795.32, 7500.21, 7542.34])
+
+# plt.subplot(2,1,1)
+# plt.bar(anos, cotação, color='r')
+# plt.xlabel("Anos")
+# plt.ylabel("Valor do Dólar")
+# plt.title("Cotação do Real x Dólar")
+
+# plt.subplot(2,1,2)
+# plt.bar(anos, pib, color='b')
+# plt.xlabel("Anos")
+# plt.ylabel("PIB")
+# plt.title("PIB do Brasil")
+# plt.tight_layout()
+# plt.show()
+
+5
+
+# import matplotlib.pyplot as plt
+# import numpy as np
+
+# países = np.array(['China', 'EUA', 'UE', 'Outros'])
+# cores = np.array(['r','g','b','y'])
+# dados = np.array([30,40,20,10])
+# offset = np.array([0.1,0.1,0.1,0.1]) #distância entre as partes do gráfico
+
+# edge_props={'linewidth': 2, #definindo a largura da borda
+#             'edgecolor': 'k', #definindo a cor da borda
+#             'linestyle': 'solid' #definindo o estilo da borda
+# } 
+
+# text_props={
+#     'color': 'k', #cor do texto
+#     'size': 10, #tamanho do texto
+#     'style': 'oblique' #estilo do texto
+# } 
+
+# plt.figure(figsize=(7,7))
+# plt.pie(dados, labels=países, colors=cores, shadow=True, startangle=90, autopct='%1.1f%%',explode=offset, wedgeprops=edge_props, textprops=text_props)
+# plt.title("Destino das Exportações Brasileiras")
+# plt.legend(países, loc='best')
+# plt.tight_layout()
+# plt.show()
+
+6
+# import matplotlib.pyplot as plt
+# import numpy as np
+
+# plt.style.use('bmh')
+# x = np.array([1.60,1.62,1.65,1.65,1.70,1.70,1.75,1.80,1.85,1.90,1.90,1.95,2.00])
+# y = np.array([60,61,64,67,70,73,75,80,85,90,85,95,100])
+
+# cores = np.array(['r','g','b','y','k','c','m','orange','purple','pink','brown','gray','olive'])
+# plt.scatter(x,y, c=cores, marker='o')
+# plt.title("Gráfico de Dispersão de Altura x Peso")
+# plt.show()
