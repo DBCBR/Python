@@ -28,4 +28,15 @@ import pytest
 # print(primo(7))
 # print(primo(8))
 
-pytest.main(["-v", "Curso/test_primo.py"])
+# pytest.main(["-v", "Curso/test_primo.py"])
+
+#Atividades
+# 1
+# from Primeiroultimo import primeiroultimo
+
+# pytest.main(["-v", "Curso/test_primeiroultimo.py"])
+
+2
+from abreviatura import abreviatura
+
+pytest.main(["-k","test_abreviatura","-v", "Curso/test_abreviatura.py"])
